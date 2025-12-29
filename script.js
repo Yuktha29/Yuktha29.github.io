@@ -19,14 +19,60 @@ openBtn?.addEventListener("click", openMenu);
 closeBtn?.addEventListener("click", closeMenu);
 backdrop?.addEventListener("click", closeMenu);
 
-// Close drawer when a nav link is clicked (mobile)
 document.querySelectorAll(".nav-item").forEach((a) => {
   a.addEventListener("click", () => {
     if (window.innerWidth <= 760) closeMenu();
   });
 });
 
-// Close on Esc
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closeMenu();
+});
+
+/* Pixie dust sparkles on nav hover */
+const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+
+function rand(min, max){ return Math.random() * (max - min) + min; }
+
+function makeSparkle(target, x, y){
+  if (reduceMotion) return;
+
+  const s = document.createElement("span");
+  s.className = "sparkle";
+
+  // random drift
+  s.style.setProperty("--dx", `${rand(-16, 16)}px`);
+  s.style.setProperty("--dy", `${rand(-18, 10)}px`);
+
+  // color variation using your palette
+  const colors = ["#B0C4B1", "#DEDBD2", "#4A5759"];
+  const c = colors[Math.floor(Math.random() * colors.length)];
+  s.style.background = c;
+
+  s.style.left = `${x}px`;
+  s.style.top = `${y}px`;
+
+  target.appendChild(s);
+
+  // cleanup
+  setTimeout(() => s.remove(), 700);
+}
+
+// throttle sparkles so it doesn't spam
+let lastSparkleAt = 0;
+
+document.querySelectorAll(".nav-item").forEach((item) => {
+  item.addEventListener("mousemove", (e) => {
+    const now = performance.now();
+    if (now - lastSparkleAt < 45) return; // throttle
+    lastSparkleAt = now;
+
+    const rect = item.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    // create 1–2 sparkles per tick
+    makeSparkle(item, x, y);
+    if (Math.random() < 0.35) makeSparkle(item, x + rand(-8, 8), y + rand(-6, 6));
+  });
 });
