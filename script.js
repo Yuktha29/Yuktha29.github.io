@@ -76,3 +76,44 @@ document.querySelectorAll(".nav-item").forEach((item) => {
     if (Math.random() < 0.35) makeSparkle(item, x + rand(-8, 8), y + rand(-6, 6));
   });
 });
+// Experiences accordion (click to open/close)
+(function () {
+  const headers = document.querySelectorAll(".exp-header");
+  if (!headers.length) return;
+
+  function closeAll(exceptId = null) {
+    headers.forEach((btn) => {
+      const id = btn.getAttribute("aria-controls");
+      const panel = id ? document.getElementById(id) : null;
+      const shouldKeepOpen = exceptId && id === exceptId;
+
+      if (!panel) return;
+
+      if (shouldKeepOpen) return;
+
+      btn.setAttribute("aria-expanded", "false");
+      panel.hidden = true;
+    });
+  }
+
+  headers.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const id = btn.getAttribute("aria-controls");
+      const panel = id ? document.getElementById(id) : null;
+      if (!panel) return;
+
+      const isOpen = btn.getAttribute("aria-expanded") === "true";
+
+      // accordion behavior: close others
+      closeAll(id);
+
+      // toggle current
+      btn.setAttribute("aria-expanded", String(!isOpen));
+      panel.hidden = isOpen;
+    });
+  });
+
+  // Footer year (nice touch)
+  const y = document.getElementById("year");
+  if (y) y.textContent = new Date().getFullYear();
+})();

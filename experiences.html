@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yuktha Reddy Vanteru | Experiences</title>
+  <meta name="description" content="Experience timeline for Yuktha Reddy Vanteru" />
+  <link rel="stylesheet" href="./styles.css?v=4">
+</head>
+<body>
+  <!-- Mobile top bar -->
+  <header class="topbar" aria-label="Mobile header">
+    <button class="icon-btn" id="openMenuBtn" aria-label="Open menu" aria-controls="sidebar" aria-expanded="false">☰</button>
+    <div class="topbar-title">Experiences</div>
+    <a class="icon-btn icon-link" href="#top" aria-label="Jump to top">↑</a>
+  </header>
+
+  <div class="backdrop" id="backdrop" hidden></div>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar" aria-label="Sidebar navigation">
+    <div class="sidebar-header">
+      <div class="profile">
+        <img class="avatar" src="./assets/profile.jpg" alt="Profile photo of Yuktha" />
+        <div class="profile-text">
+          <h1>Yuktha Reddy Vanteru</h1>
+          <p>Full Stack Developer<br/>Software Engineer</p>
+        </div>
+      </div>
+    </div>
+
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-item" href="./index.html"><span class="nav-icon">⌂</span><span>Home</span></a>
+      <a class="nav-item active" href="./experiences.html"><span class="nav-icon">▦</span><span>Experiences</span></a>
+
+      <!-- Keep these as placeholders for now (we’ll build later) -->
+      <a class="nav-item" href="#"><span class="nav-icon">⧉</span><span>Projects</span></a>
+      <a class="nav-item" href="#"><span class="nav-icon">👥</span><span>Leadership</span></a>
+      <a class="nav-item" href="#"><span class="nav-icon">&lt;/&gt;</span><span>Tech Stack</span></a>
+      <a class="nav-item" href="#"><span class="nav-icon">♡</span><span>What I Love To Do</span></a>
+      <a class="nav-item" href="#"><span class="nav-icon">☰</span><span>Blogs</span></a>
+      <a class="nav-item" href="#"><span class="nav-icon">✉</span><span>Contact Me</span></a>
+    </nav>
+
+    <button class="close-btn" id="closeMenuBtn" aria-label="Close menu">Close</button>
+  </aside>
+
+  <!-- Main -->
+  <main class="main" id="top">
+    <div class="page-head">
+      <h2>Experiences</h2>
+    </div>
+
+    <section class="exp-intro">
+      <p>
+        Throughout my journey, I’ve worked on leadership, research, and community roles that strengthened my ability to
+        ship projects, collaborate across teams, and communicate with impact.
+      </p>
+    </section>
+
+    <section class="exp-list" aria-label="Experience list">
+
+      <!-- 1) Project Manager -->
+      <article class="exp-card">
+        <button class="exp-header" type="button" aria-expanded="false" aria-controls="exp-pm">
+          <div class="exp-title">
+            <h3>Project Manager</h3>
+            <div class="exp-sub">Cross-functional Web/AI Teams</div>
+          </div>
+          <span class="exp-date">Dec 2025 – Present</span>
+        </button>
+
+        <div class="exp-body" id="exp-pm" hidden>
+          <div class="exp-grid">
+            <div class="exp-box">
+              <h4>Description</h4>
+              <ul>
+                <li>Leading 4–6 cross-functional teams to deliver 3 web/AI projects using React, PHP, and ML pipelines on sprint deadlines.</li>
+                <li>Used Jira and Trello to manage deliverables and timelines, achieving 100% on-time project completion.</li>
+              </ul>
+            </div>
+
+            <div class="exp-box">
+              <h4>Skills I learned</h4>
+              <div class="chips">
+                <span class="chip">Agile / Scrum</span>
+                <span class="chip">Sprint Planning</span>
+                <span class="chip">Stakeholder Updates</span>
+                <span class="chip">Jira</span>
+                <span class="chip">Trello</span>
+                <span class="chip">Risk Management</span>
+                <span class="chip">Team Leadership</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2) Resident Advisor -->
+      <article class="exp-card">
+        <button class="exp-header" type="button" aria-expanded="false" aria-controls="exp-ra">
+          <div class="exp-title">
+            <h3>Resident Advisor</h3>
+            <div class="exp-sub">University at Buffalo · Buffalo, NY (On-site) · Part-time</div>
+          </div>
+          <span class="exp-date">Aug 2024 – Present</span>
+        </button>
+
+        <div class="exp-body" id="exp-ra" hidden>
+          <div class="exp-grid">
+            <div class="exp-box">
+              <h4>Description</h4>
+              <ul>
+                <li>Led 5+ policy-awareness workshops, increasing participation in community initiatives by 25%.</li>
+                <li>Executed programs for 150+ residents, improving turnout by 35% across student groups.</li>
+                <li>Supervised 40+ residents; built simple engagement tracking dashboards to improve event planning.</li>
+              </ul>
+            </div>
+
+            <div class="exp-box">
+              <h4>Skills I learned</h4>
+              <div class="chips">
+                <span class="chip">Leadership</span>
+                <span class="chip">Conflict Resolution</span>
+                <span class="chip">Event Planning</span>
+                <span class="chip">Public Speaking</span>
+                <span class="chip">Communication</span>
+                <span class="chip">Organization</span>
+                <span class="chip">Time Management</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3) Gifted Math Tutor -->
+      <article class="exp-card">
+        <button class="exp-header" type="button" aria-expanded="false" aria-controls="exp-tutor">
+          <div class="exp-title">
+            <h3>Gifted Math Tutor</h3>
+            <div class="exp-sub">Academic Support · Tutoring</div>
+          </div>
+          <span class="exp-date">Aug 2023 – Dec 2025</span>
+        </button>
+
+        <div class="exp-body" id="exp-tutor" hidden>
+          <div class="exp-grid">
+            <div class="exp-box">
+              <h4>Description</h4>
+              <ul>
+                <li>Provided personalized, advanced math instruction tailored to gifted students’ learning styles.</li>
+                <li>Strengthened critical thinking and problem-solving strategies to help students excel in exams and future coursework.</li>
+              </ul>
+            </div>
+
+            <div class="exp-box">
+              <h4>Skills I learned</h4>
+              <div class="chips">
+                <span class="chip">Tutoring</span>
+                <span class="chip">Explaining Complex Ideas</span>
+                <span class="chip">Lesson Planning</span>
+                <span class="chip">Patience</span>
+                <span class="chip">Time Management</span>
+                <span class="chip">Communication</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4) Undergraduate Research Assistant -->
+      <article class="exp-card">
+        <button class="exp-header" type="button" aria-expanded="false" aria-controls="exp-ura">
+          <div class="exp-title">
+            <h3>Undergraduate Research Assistant (Computer Science)</h3>
+            <div class="exp-sub">University at Buffalo · Remote · Part-time</div>
+          </div>
+          <span class="exp-date">May 2025 – Aug 2025</span>
+        </button>
+
+        <div class="exp-body" id="exp-ura" hidden>
+          <div class="exp-grid">
+            <div class="exp-box">
+              <h4>Description</h4>
+              <ul>
+                <li>Engineered AI-driven computer vision models to enhance OCT resolution and contrast, improving clarity by 40%.</li>
+                <li>Developed an image restoration neural network that boosted retinal feature detection accuracy by 35%.</li>
+                <li>Collaborated with cross-disciplinary teams to publish and present findings at professional conferences.</li>
+              </ul>
+            </div>
+
+            <div class="exp-box">
+              <h4>Skills I learned</h4>
+              <div class="chips">
+                <span class="chip">Computer Vision</span>
+                <span class="chip">Deep Learning</span>
+                <span class="chip">PyTorch</span>
+                <span class="chip">TensorFlow/Keras</span>
+                <span class="chip">Image Processing</span>
+                <span class="chip">Experiment Tracking</span>
+                <span class="chip">Research Collaboration</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 5) Conference Host -->
+      <article class="exp-card">
+        <button class="exp-header" type="button" aria-expanded="false" aria-controls="exp-host">
+          <div class="exp-title">
+            <h3>Conference Host</h3>
+            <div class="exp-sub">Greiner (On-site) · Part-time</div>
+          </div>
+          <span class="exp-date">May 2025 – Aug 2025 · May 2024 – Aug 2024</span>
+        </button>
+
+        <div class="exp-body" id="exp-host" hidden>
+          <div class="exp-grid">
+            <div class="exp-box">
+              <h4>Description</h4>
+              <ul>
+                <li>Supported event operations, attendee guidance, and on-site coordination during conferences.</li>
+                <li>Handled questions, logistics, and customer-facing support to keep sessions running smoothly.</li>
+              </ul>
+            </div>
+
+            <div class="exp-box">
+              <h4>Skills I learned</h4>
+              <div class="chips">
+                <span class="chip">Customer Service</span>
+                <span class="chip">Public Speaking</span>
+                <span class="chip">Communication</span>
+                <span class="chip">Organization</span>
+                <span class="chip">Analytics</span>
+                <span class="chip">Problem Solving</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 6) Student Engagement Ambassador -->
+      <article class="exp-card">
+        <button class="exp-header" type="button" aria-expanded="false" aria-controls="exp-sea">
+          <div class="exp-title">
+            <h3>Student Engagement Ambassador</h3>
+            <div class="exp-sub">Student Engagement · University Programs</div>
+          </div>
+          <span class="exp-date">Aug 2023 – Aug 2024</span>
+        </button>
+
+        <div class="exp-body" id="exp-sea" hidden>
+          <div class="exp-grid">
+            <div class="exp-box">
+              <h4>Description</h4>
+              <ul>
+                <li>Promoted student involvement by supporting events, initiatives, and campus engagement programs.</li>
+                <li>Hosted weekly office hours and guided students toward leadership development opportunities.</li>
+              </ul>
+            </div>
+
+            <div class="exp-box">
+              <h4>Skills I learned</h4>
+              <div class="chips">
+                <span class="chip">Leadership</span>
+                <span class="chip">Communication</span>
+                <span class="chip">Public Speaking</span>
+                <span class="chip">Creativity</span>
+                <span class="chip">Time Management</span>
+                <span class="chip">Organization</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 7) Honors College Peer Mentor -->
+      <article class="exp-card">
+        <button class="exp-header" type="button" aria-expanded="false" aria-controls="exp-mentor">
+          <div class="exp-title">
+            <h3>Honors College Peer Mentor</h3>
+            <div class="exp-sub">Mentorship · Student Support</div>
+          </div>
+          <span class="exp-date">Aug 2023 – Aug 2024</span>
+        </button>
+
+        <div class="exp-body" id="exp-mentor" hidden>
+          <div class="exp-grid">
+            <div class="exp-box">
+              <h4>Description</h4>
+              <ul>
+                <li>Supported first-year honors students in navigating academic and social life at university.</li>
+                <li>Encouraged participation in Honors College and campus-wide events to enrich the student experience.</li>
+              </ul>
+            </div>
+
+            <div class="exp-box">
+              <h4>Skills I learned</h4>
+              <div class="chips">
+                <span class="chip">Mentoring</span>
+                <span class="chip">Student Support</span>
+                <span class="chip">Leadership</span>
+                <span class="chip">Communication</span>
+                <span class="chip">Empathy</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 8) Welcome Weekend Leader -->
+      <article class="exp-card">
+        <button class="exp-header" type="button" aria-expanded="false" aria-controls="exp-wwl">
+          <div class="exp-title">
+            <h3>Welcome Weekend Leader</h3>
+            <div class="exp-sub">Orientation Support · Part-time</div>
+          </div>
+          <span class="exp-date">Aug 2023 – Sep 2023</span>
+        </button>
+
+        <div class="exp-body" id="exp-wwl" hidden>
+          <div class="exp-grid">
+            <div class="exp-box">
+              <h4>Description</h4>
+              <ul>
+                <li>Assisted new students during their transition to university life through tours and orientation activities.</li>
+                <li>Provided mentorship and guidance during Welcome Weekend and follow-up support as needed.</li>
+              </ul>
+            </div>
+
+            <div class="exp-box">
+              <h4>Skills I learned</h4>
+              <div class="chips">
+                <span class="chip">Teamwork</span>
+                <span class="chip">Leadership</span>
+                <span class="chip">Problem Solving</span>
+                <span class="chip">Public Speaking</span>
+                <span class="chip">Organization</span>
+                <span class="chip">Time Management</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <footer class="page-footer">
+      <span>© <span id="year"></span> Yuktha Reddy Vanteru</span>
+    </footer>
+  </main>
+
+  <script src="./script.js?v=4" defer></script>
+</body>
+</html>
