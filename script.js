@@ -118,19 +118,17 @@ document.querySelectorAll(".nav-item").forEach((item) => {
   if (y) y.textContent = new Date().getFullYear();
 })();
 
-// Projects accordion (click to open/close)
+// Projects: only one open at a time
 (function () {
   const headers = document.querySelectorAll(".proj-header");
   if (!headers.length) return;
 
-  function closeAll(exceptId = null) {
+  function closeAll() {
     headers.forEach((btn) => {
       const id = btn.getAttribute("aria-controls");
       const panel = id ? document.getElementById(id) : null;
-      const keep = exceptId && id === exceptId;
-      if (!panel || keep) return;
       btn.setAttribute("aria-expanded", "false");
-      panel.hidden = true;
+      if (panel) panel.hidden = true;
     });
   }
 
@@ -141,12 +139,40 @@ document.querySelectorAll(".nav-item").forEach((item) => {
       if (!panel) return;
 
       const isOpen = btn.getAttribute("aria-expanded") === "true";
-      closeAll(id);
-      btn.setAttribute("aria-expanded", String(!isOpen));
-      panel.hidden = isOpen;
+
+      closeAll();                 // close everything first
+      if (!isOpen) {              // then open only the clicked one
+        btn.setAttribute("aria-expanded", "true");
+        panel.hidden = false;
+      }
     });
   });
 
   const y = document.getElementById("year");
   if (y) y.textContent = new Date().getFullYear();
 })();
+
+function setActiveNavByPage() {
+  const current = (location.pathname.split("/").pop() || "index.html").toLowerCase();
+
+  document.querySelectorAll(".nav-item").forEach((a) => {
+    const href = (a.getAttribute("href") || "").toLowerCase();
+
+    // Only auto-activate real page links
+    if (href.endsWith(".html")) {
+      const target = href.split("/").pop();
+      a.classList.toggle("active", target === current);
+    } else {
+      a.classList.remove("active");
+    }
+  });
+
+  // Optional: set mobile topbar title from active nav text
+  const activeText = document.querySelector(".nav-item.active span:last-child")?.textContent?.trim();
+  if (activeText) {
+    const topbarTitle = document.querySelector(".topbar-title");
+    if (topbarTitle) topbarTitle.textContent = activeText;
+  }
+}
+
+document.addEventListener("DOMContentLoaded", setActiveNavByPage);

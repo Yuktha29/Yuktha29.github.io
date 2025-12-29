@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Yuktha Reddy Vanteru | Projects</title>
   <meta name="description" content="Projects portfolio for Yuktha Reddy Vanteru" />
-  <link rel="stylesheet" href="./styles.css?v=5">
+  <link rel="stylesheet" href="./styles.css?v=6">
 </head>
 <body>
   <!-- Mobile top bar -->
@@ -52,28 +52,25 @@
 
     <section class="proj-intro">
       <p>
-        A mix of full-stack systems, AI/ML pipelines, and systems programming projects. Click any card to see details
-        and the skills/tools used.
+        A mix of full-stack systems, AI/ML pipelines, and systems programming projects.
+        Click any card to see details and the skills/tools used.
       </p>
     </section>
 
-    <!-- Featured -->
-    <h3 class="section-title">Featured</h3>
-    <section class="proj-grid" aria-label="Featured projects">
+    <!-- ONE grid for ALL projects (top ones first) -->
+    <section class="proj-grid" aria-label="Projects list">
 
-      <!-- Resume Screener -->
-      <article class="proj-card featured">
+      <!-- 1) Resume Screener -->
+      <article class="proj-card">
         <button class="proj-header" type="button" aria-expanded="false" aria-controls="p-resume">
           <div class="proj-title">
             <h4>AI-Powered Resume Screener (Fair Hiring Platform)</h4>
             <div class="proj-sub">Buffalo, NY</div>
           </div>
-          <span class="proj-badge">Top Project</span>
         </button>
 
         <div class="proj-body" id="p-resume" hidden>
           <div class="proj-actions">
-            <!-- add your real links later -->
             <a class="proj-btn" href="#" target="_blank" rel="noreferrer">View on GitHub</a>
             <a class="proj-btn ghost" href="#" target="_blank" rel="noreferrer">Live Demo</a>
           </div>
@@ -86,6 +83,7 @@
                 <li>Deployed Dockerized microservices on AWS EC2, cutting latency by 40% and improving scalability.</li>
               </ul>
             </div>
+
             <div class="proj-box">
               <h5>Skills & Tools</h5>
               <div class="chips">
@@ -103,14 +101,13 @@
         </div>
       </article>
 
-      <!-- HomeMate -->
-      <article class="proj-card featured">
+      <!-- 2) HomeMate -->
+      <article class="proj-card">
         <button class="proj-header" type="button" aria-expanded="false" aria-controls="p-homemate">
           <div class="proj-title">
             <h4>HomeMate Web Platform</h4>
             <div class="proj-sub">Full Stack Developer · Buffalo, NY</div>
           </div>
-          <span class="proj-badge">Top Project</span>
         </button>
 
         <div class="proj-body" id="p-homemate" hidden>
@@ -127,6 +124,7 @@
                 <li>Developed a housing platform with search filters, ratings, and roommate tags, boosting engagement by 40%.</li>
               </ul>
             </div>
+
             <div class="proj-box">
               <h5>Skills & Tools</h5>
               <div class="chips">
@@ -143,14 +141,13 @@
         </div>
       </article>
 
-      <!-- ESRC -->
-      <article class="proj-card featured">
+      <!-- 3) ESRC -->
+      <article class="proj-card">
         <button class="proj-header" type="button" aria-expanded="false" aria-controls="p-esrc">
           <div class="proj-title">
             <h4>Encrypted Storage Resilient to Compromise (ESRC)</h4>
             <div class="proj-sub">Project Contributor · Buffalo, NY</div>
           </div>
-          <span class="proj-badge">Top Project</span>
         </button>
 
         <div class="proj-body" id="p-esrc" hidden>
@@ -167,6 +164,7 @@
                 <li>Implemented device authentication and Diffie–Hellman secure channels over NTFY.</li>
               </ul>
             </div>
+
             <div class="proj-box">
               <h5>Skills & Tools</h5>
               <div class="chips">
@@ -183,25 +181,64 @@
         </div>
       </article>
 
-    </section>
+      <!-- 4) Movie Showtime Finder -->
+      <article class="proj-card">
+        <button class="proj-header" type="button" aria-expanded="false" aria-controls="p-showtime">
+          <div class="proj-title">
+            <h4>Reliable Movie Showtime Finder — Relational Database Project</h4>
+            <div class="proj-sub">PostgreSQL · SQL · Data Modeling · Query Optimization</div>
+          </div>
+        </button>
 
-    <!-- Other projects -->
-    <h3 class="section-title">More Projects</h3>
-    <section class="proj-grid" aria-label="More projects">
+        <div class="proj-body" id="p-showtime" hidden>
+          <div class="proj-actions">
+            <a class="proj-btn" href="#" target="_blank" rel="noreferrer">View on GitHub</a>
+            <a class="proj-btn ghost" href="#" target="_blank" rel="noreferrer">Read Write-up</a>
+          </div>
 
+          <div class="proj-detail">
+            <div class="proj-box">
+              <h5>What I built</h5>
+              <ul>
+                <li>Designed a <strong>BCNF-compliant relational schema</strong> for dynamic showtimes, theaters, pricing, accessibility, and travel paths using stable identifiers.</li>
+                <li>Optimized SQL using indexing + <code>EXPLAIN ANALYZE</code>, achieving <strong>up to 12× lower query latency</strong>.</li>
+                <li>Enforced integrity with <strong>transactions and triggers</strong>, preventing invalid inserts under concurrent updates.</li>
+              </ul>
+            </div>
+
+            <div class="proj-box">
+              <h5>Skills & Tools</h5>
+              <div class="chips">
+                <span class="chip">PostgreSQL</span>
+                <span class="chip">SQL</span>
+                <span class="chip">BCNF</span>
+                <span class="chip">Indexing</span>
+                <span class="chip">EXPLAIN ANALYZE</span>
+                <span class="chip">Transactions</span>
+                <span class="chip">Triggers</span>
+                <span class="chip">Query Optimization</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Conway -->
       <article class="proj-card">
         <button class="proj-header" type="button" aria-expanded="false" aria-controls="p-gol">
           <div class="proj-title">
             <h4>Conway’s Game of Life</h4>
             <div class="proj-sub">Cellular automata simulation</div>
           </div>
-          <span class="proj-badge subtle">Systems</span>
         </button>
         <div class="proj-body" id="p-gol" hidden>
           <div class="proj-detail">
             <div class="proj-box">
               <h5>Description</h5>
-              <p class="proj-text">Implemented a simplified version of John Horton Conway’s Game of Life with update rules, grid evolution, and visualization-friendly structure.</p>
+              <p class="proj-text">
+                Implemented a simplified version of Conway’s Game of Life with update rules, grid evolution,
+                and visualization-friendly structure.
+              </p>
             </div>
             <div class="proj-box">
               <h5>Skills & Tools</h5>
@@ -215,13 +252,13 @@
         </div>
       </article>
 
+      <!-- Allocator -->
       <article class="proj-card">
         <button class="proj-header" type="button" aria-expanded="false" aria-controls="p-alloc">
           <div class="proj-title">
             <h4>Dynamic Allocator</h4>
             <div class="proj-sub">Malloc-style heap memory allocator</div>
           </div>
-          <span class="proj-badge subtle">C</span>
         </button>
         <div class="proj-body" id="p-alloc" hidden>
           <div class="proj-detail">
@@ -245,21 +282,21 @@
         </div>
       </article>
 
+      <!-- IM -->
       <article class="proj-card">
         <button class="proj-header" type="button" aria-expanded="false" aria-controls="p-im">
           <div class="proj-title">
             <h4>Instant Messenger</h4>
             <div class="proj-sub">Real-time messaging client/server</div>
           </div>
-          <span class="proj-badge subtle">Networking</span>
         </button>
         <div class="proj-body" id="p-im" hidden>
           <div class="proj-detail">
             <div class="proj-box">
               <h5>Description</h5>
               <p class="proj-text">
-                Built a client-server instant messaging app where clients send messages to a server, which relays messages
-                to intended recipients in real time.
+                Built a client-server instant messaging app where clients send messages to a server,
+                which relays messages to recipients in real time.
               </p>
             </div>
             <div class="proj-box">
@@ -275,21 +312,21 @@
         </div>
       </article>
 
+      <!-- Portfolio -->
       <article class="proj-card">
         <button class="proj-header" type="button" aria-expanded="false" aria-controls="p-portfolio">
           <div class="proj-title">
             <h4>Personal Portfolio</h4>
             <div class="proj-sub">This website (GitHub Pages)</div>
           </div>
-          <span class="proj-badge subtle">Frontend</span>
         </button>
         <div class="proj-body" id="p-portfolio" hidden>
           <div class="proj-detail">
             <div class="proj-box">
               <h5>Description</h5>
               <p class="proj-text">
-                Designed and deployed a responsive portfolio site using HTML/CSS/JS with interactive cards, mobile drawer nav,
-                and GitHub Pages hosting.
+                Designed and deployed a responsive portfolio site using HTML/CSS/JS with interactive cards,
+                mobile drawer nav, and GitHub Pages hosting.
               </p>
             </div>
             <div class="proj-box">
@@ -313,6 +350,6 @@
     </footer>
   </main>
 
-  <script src="./script.js?v=5" defer></script>
+  <script src="./script.js?v=6" defer></script>
 </body>
 </html>
