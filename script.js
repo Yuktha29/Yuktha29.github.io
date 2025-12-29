@@ -117,3 +117,36 @@ document.querySelectorAll(".nav-item").forEach((item) => {
   const y = document.getElementById("year");
   if (y) y.textContent = new Date().getFullYear();
 })();
+
+// Projects accordion (click to open/close)
+(function () {
+  const headers = document.querySelectorAll(".proj-header");
+  if (!headers.length) return;
+
+  function closeAll(exceptId = null) {
+    headers.forEach((btn) => {
+      const id = btn.getAttribute("aria-controls");
+      const panel = id ? document.getElementById(id) : null;
+      const keep = exceptId && id === exceptId;
+      if (!panel || keep) return;
+      btn.setAttribute("aria-expanded", "false");
+      panel.hidden = true;
+    });
+  }
+
+  headers.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const id = btn.getAttribute("aria-controls");
+      const panel = id ? document.getElementById(id) : null;
+      if (!panel) return;
+
+      const isOpen = btn.getAttribute("aria-expanded") === "true";
+      closeAll(id);
+      btn.setAttribute("aria-expanded", String(!isOpen));
+      panel.hidden = isOpen;
+    });
+  });
+
+  const y = document.getElementById("year");
+  if (y) y.textContent = new Date().getFullYear();
+})();

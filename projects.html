@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yuktha Reddy Vanteru | Projects</title>
+  <meta name="description" content="Projects portfolio for Yuktha Reddy Vanteru" />
+  <link rel="stylesheet" href="./styles.css?v=5">
+</head>
+<body>
+  <!-- Mobile top bar -->
+  <header class="topbar" aria-label="Mobile header">
+    <button class="icon-btn" id="openMenuBtn" aria-label="Open menu" aria-controls="sidebar" aria-expanded="false">☰</button>
+    <div class="topbar-title">Projects</div>
+    <a class="icon-btn icon-link" href="#top" aria-label="Jump to top">↑</a>
+  </header>
+
+  <div class="backdrop" id="backdrop" hidden></div>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar" aria-label="Sidebar navigation">
+    <div class="sidebar-header">
+      <div class="profile">
+        <img class="avatar" src="./assets/profile.jpg" alt="Profile photo of Yuktha" />
+        <div class="profile-text">
+          <h1>Yuktha Reddy Vanteru</h1>
+          <p>Full Stack Developer<br/>Software Engineer</p>
+        </div>
+      </div>
+    </div>
+
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-item" href="./index.html"><span class="nav-icon">⌂</span><span>Home</span></a>
+      <a class="nav-item" href="./experiences.html"><span class="nav-icon">▦</span><span>Experiences</span></a>
+      <a class="nav-item active" href="./projects.html"><span class="nav-icon">⧉</span><span>Projects</span></a>
+
+      <a class="nav-item" href="#"><span class="nav-icon">👥</span><span>Leadership</span></a>
+      <a class="nav-item" href="#"><span class="nav-icon">&lt;/&gt;</span><span>Tech Stack</span></a>
+      <a class="nav-item" href="#"><span class="nav-icon">♡</span><span>What I Love To Do</span></a>
+      <a class="nav-item" href="#"><span class="nav-icon">☰</span><span>Blogs</span></a>
+      <a class="nav-item" href="#"><span class="nav-icon">✉</span><span>Contact Me</span></a>
+    </nav>
+
+    <button class="close-btn" id="closeMenuBtn" aria-label="Close menu">Close</button>
+  </aside>
+
+  <!-- Main -->
+  <main class="main" id="top">
+    <div class="page-head">
+      <h2>Projects</h2>
+    </div>
+
+    <section class="proj-intro">
+      <p>
+        A mix of full-stack systems, AI/ML pipelines, and systems programming projects. Click any card to see details
+        and the skills/tools used.
+      </p>
+    </section>
+
+    <!-- Featured -->
+    <h3 class="section-title">Featured</h3>
+    <section class="proj-grid" aria-label="Featured projects">
+
+      <!-- Resume Screener -->
+      <article class="proj-card featured">
+        <button class="proj-header" type="button" aria-expanded="false" aria-controls="p-resume">
+          <div class="proj-title">
+            <h4>AI-Powered Resume Screener (Fair Hiring Platform)</h4>
+            <div class="proj-sub">Buffalo, NY</div>
+          </div>
+          <span class="proj-badge">Top Project</span>
+        </button>
+
+        <div class="proj-body" id="p-resume" hidden>
+          <div class="proj-actions">
+            <!-- add your real links later -->
+            <a class="proj-btn" href="#" target="_blank" rel="noreferrer">View on GitHub</a>
+            <a class="proj-btn ghost" href="#" target="_blank" rel="noreferrer">Live Demo</a>
+          </div>
+
+          <div class="proj-detail">
+            <div class="proj-box">
+              <h5>What I built</h5>
+              <ul>
+                <li>Engineered an NLP pipeline using spaCy and TensorFlow, enhancing transparency with SHAP and AI Fairness 360.</li>
+                <li>Deployed Dockerized microservices on AWS EC2, cutting latency by 40% and improving scalability.</li>
+              </ul>
+            </div>
+            <div class="proj-box">
+              <h5>Skills & Tools</h5>
+              <div class="chips">
+                <span class="chip">NLP</span>
+                <span class="chip">spaCy</span>
+                <span class="chip">TensorFlow</span>
+                <span class="chip">SHAP</span>
+                <span class="chip">AI Fairness 360</span>
+                <span class="chip">Docker</span>
+                <span class="chip">AWS EC2</span>
+                <span class="chip">Microservices</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- HomeMate -->
+      <article class="proj-card featured">
+        <button class="proj-header" type="button" aria-expanded="false" aria-controls="p-homemate">
+          <div class="proj-title">
+            <h4>HomeMate Web Platform</h4>
+            <div class="proj-sub">Full Stack Developer · Buffalo, NY</div>
+          </div>
+          <span class="proj-badge">Top Project</span>
+        </button>
+
+        <div class="proj-body" id="p-homemate" hidden>
+          <div class="proj-actions">
+            <a class="proj-btn" href="#" target="_blank" rel="noreferrer">View on GitHub</a>
+            <a class="proj-btn ghost" href="#" target="_blank" rel="noreferrer">Live Demo</a>
+          </div>
+
+          <div class="proj-detail">
+            <div class="proj-box">
+              <h5>What I built</h5>
+              <ul>
+                <li>Led backend API design and data models for web/AI projects using PHP, ML pipelines, and AWS.</li>
+                <li>Developed a housing platform with search filters, ratings, and roommate tags, boosting engagement by 40%.</li>
+              </ul>
+            </div>
+            <div class="proj-box">
+              <h5>Skills & Tools</h5>
+              <div class="chips">
+                <span class="chip">PHP</span>
+                <span class="chip">REST APIs</span>
+                <span class="chip">Data Modeling</span>
+                <span class="chip">AWS</span>
+                <span class="chip">Search Filters</span>
+                <span class="chip">Analytics</span>
+                <span class="chip">Full Stack</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ESRC -->
+      <article class="proj-card featured">
+        <button class="proj-header" type="button" aria-expanded="false" aria-controls="p-esrc">
+          <div class="proj-title">
+            <h4>Encrypted Storage Resilient to Compromise (ESRC)</h4>
+            <div class="proj-sub">Project Contributor · Buffalo, NY</div>
+          </div>
+          <span class="proj-badge">Top Project</span>
+        </button>
+
+        <div class="proj-body" id="p-esrc" hidden>
+          <div class="proj-actions">
+            <a class="proj-btn" href="#" target="_blank" rel="noreferrer">View on GitHub</a>
+            <a class="proj-btn ghost" href="#" target="_blank" rel="noreferrer">Read Write-up</a>
+          </div>
+
+          <div class="proj-detail">
+            <div class="proj-box">
+              <h5>What I built</h5>
+              <ul>
+                <li>Developed encrypted-storage components using multi-device secret-share keys, eliminating single-device compromise risk.</li>
+                <li>Implemented device authentication and Diffie–Hellman secure channels over NTFY.</li>
+              </ul>
+            </div>
+            <div class="proj-box">
+              <h5>Skills & Tools</h5>
+              <div class="chips">
+                <span class="chip">Cryptography</span>
+                <span class="chip">Secret Sharing</span>
+                <span class="chip">Diffie–Hellman</span>
+                <span class="chip">Device Auth</span>
+                <span class="chip">Secure Channels</span>
+                <span class="chip">NTFY</span>
+                <span class="chip">Systems Design</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- Other projects -->
+    <h3 class="section-title">More Projects</h3>
+    <section class="proj-grid" aria-label="More projects">
+
+      <article class="proj-card">
+        <button class="proj-header" type="button" aria-expanded="false" aria-controls="p-gol">
+          <div class="proj-title">
+            <h4>Conway’s Game of Life</h4>
+            <div class="proj-sub">Cellular automata simulation</div>
+          </div>
+          <span class="proj-badge subtle">Systems</span>
+        </button>
+        <div class="proj-body" id="p-gol" hidden>
+          <div class="proj-detail">
+            <div class="proj-box">
+              <h5>Description</h5>
+              <p class="proj-text">Implemented a simplified version of John Horton Conway’s Game of Life with update rules, grid evolution, and visualization-friendly structure.</p>
+            </div>
+            <div class="proj-box">
+              <h5>Skills & Tools</h5>
+              <div class="chips">
+                <span class="chip">Algorithms</span>
+                <span class="chip">Simulation</span>
+                <span class="chip">Data Structures</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="proj-card">
+        <button class="proj-header" type="button" aria-expanded="false" aria-controls="p-alloc">
+          <div class="proj-title">
+            <h4>Dynamic Allocator</h4>
+            <div class="proj-sub">Malloc-style heap memory allocator</div>
+          </div>
+          <span class="proj-badge subtle">C</span>
+        </button>
+        <div class="proj-body" id="p-alloc" hidden>
+          <div class="proj-detail">
+            <div class="proj-box">
+              <h5>Description</h5>
+              <ul>
+                <li>Built a dynamic memory allocator suitable for replacing <code>malloc()</code> in a Unix process.</li>
+                <li>Used pointer manipulation, pointer casting, block splitting/coalescing, and heap bookkeeping.</li>
+              </ul>
+            </div>
+            <div class="proj-box">
+              <h5>Skills & Tools</h5>
+              <div class="chips">
+                <span class="chip">C</span>
+                <span class="chip">Pointers</span>
+                <span class="chip">Memory Management</span>
+                <span class="chip">Debugging</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="proj-card">
+        <button class="proj-header" type="button" aria-expanded="false" aria-controls="p-im">
+          <div class="proj-title">
+            <h4>Instant Messenger</h4>
+            <div class="proj-sub">Real-time messaging client/server</div>
+          </div>
+          <span class="proj-badge subtle">Networking</span>
+        </button>
+        <div class="proj-body" id="p-im" hidden>
+          <div class="proj-detail">
+            <div class="proj-box">
+              <h5>Description</h5>
+              <p class="proj-text">
+                Built a client-server instant messaging app where clients send messages to a server, which relays messages
+                to intended recipients in real time.
+              </p>
+            </div>
+            <div class="proj-box">
+              <h5>Skills & Tools</h5>
+              <div class="chips">
+                <span class="chip">Sockets</span>
+                <span class="chip">Client-Server</span>
+                <span class="chip">Concurrency</span>
+                <span class="chip">Networking</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="proj-card">
+        <button class="proj-header" type="button" aria-expanded="false" aria-controls="p-portfolio">
+          <div class="proj-title">
+            <h4>Personal Portfolio</h4>
+            <div class="proj-sub">This website (GitHub Pages)</div>
+          </div>
+          <span class="proj-badge subtle">Frontend</span>
+        </button>
+        <div class="proj-body" id="p-portfolio" hidden>
+          <div class="proj-detail">
+            <div class="proj-box">
+              <h5>Description</h5>
+              <p class="proj-text">
+                Designed and deployed a responsive portfolio site using HTML/CSS/JS with interactive cards, mobile drawer nav,
+                and GitHub Pages hosting.
+              </p>
+            </div>
+            <div class="proj-box">
+              <h5>Skills & Tools</h5>
+              <div class="chips">
+                <span class="chip">HTML</span>
+                <span class="chip">CSS</span>
+                <span class="chip">JavaScript</span>
+                <span class="chip">GitHub Pages</span>
+                <span class="chip">Responsive Design</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <footer class="page-footer">
+      <span>© <span id="year"></span> Yuktha Reddy Vanteru</span>
+    </footer>
+  </main>
+
+  <script src="./script.js?v=5" defer></script>
+</body>
+</html>
