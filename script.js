@@ -181,48 +181,41 @@ function setActiveNavByPage() {
 
 document.addEventListener("DOMContentLoaded", setActiveNavByPage);
 
-// Tech Stack tabs + search
+// Tech Stack tabs (active + swap skills)
 (function () {
   const tabs = document.querySelectorAll(".tech-tab");
-  const panels = document.querySelectorAll(".tech-panel");
-  const search = document.getElementById("techSearch");
+  const title = document.querySelector(".tech-card-title");
+  const grid = document.querySelector(".tech-skill-grid");
 
-  if (!tabs.length || !panels.length) return;
+  if (!tabs.length || !title || !grid) return;
 
-  function setActive(cat) {
-    tabs.forEach((t) => {
-      const on = t.dataset.cat === cat;
-      t.classList.toggle("is-active", on);
-      t.setAttribute("aria-selected", on ? "true" : "false");
-    });
+  const data = {
+    frontend: { icon: "<>", label: "Frontend Skills", skills: ["React","TypeScript","Next.js","Tailwind CSS","HTML/CSS","JavaScript","Vue.js","Redux"] },
+    backend:  { icon: "🗄️", label: "Backend Skills",  skills: ["Python","Flask","Node.js","PHP","REST APIs","Auth","Microservices","ML Pipelines"] },
+    database: { icon: "🛢️", label: "Database Skills", skills: ["PostgreSQL","SQL","BCNF","Indexing","EXPLAIN ANALYZE","Query Optimization","Data Modeling","Transactions"] },
+    cloud:    { icon: "☁️", label: "Cloud & DevOps",   skills: ["AWS EC2","Docker","GitHub Actions","CI/CD","Linux","Monitoring","Deployments","Networking"] },
+    tools:    { icon: "🛠️", label: "Tools",           skills: ["Git","GitHub","Jira","Trello","VS Code","Figma","Postman","Notion"] },
+    mobile:   { icon: "📱", label: "Mobile",          skills: ["React Native","Mobile UI","APIs","State Mgmt"] },
+  };
 
-    panels.forEach((p) => {
-      p.classList.toggle("is-active", p.dataset.panel === cat);
-    });
+  function render(cat){
+    const d = data[cat];
+    if (!d) return;
 
-    // clear any previous search filtering when switching categories
-    if (search) {
-      search.value = "";
-      panels.forEach((p) => {
-        p.querySelectorAll(".tchip").forEach((c) => (c.style.display = ""));
-      });
-    }
+    title.innerHTML = `<span class="tech-card-ico">${d.icon}</span> ${d.label}`;
+    grid.innerHTML = d.skills.map(s => `<div class="tech-skill">${s}</div>`).join("");
   }
 
   tabs.forEach((t) => {
-    t.addEventListener("click", () => setActive(t.dataset.cat));
+    t.addEventListener("click", () => {
+      tabs.forEach(x => x.classList.remove("active"));
+      t.classList.add("active");
+      render(t.dataset.cat);
+    });
   });
 
-  if (search) {
-    search.addEventListener("input", () => {
-      const q = search.value.trim().toLowerCase();
-      const activePanel = document.querySelector(".tech-panel.is-active");
-      if (!activePanel) return;
-
-      activePanel.querySelectorAll(".tchip").forEach((chip) => {
-        const show = chip.textContent.toLowerCase().includes(q);
-        chip.style.display = show ? "" : "none";
-      });
-    });
-  }
+  // initial render based on active tab
+  const first = document.querySelector(".tech-tab.active") || tabs[0];
+  if (first) render(first.dataset.cat);
 })();
+
