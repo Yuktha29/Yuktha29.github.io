@@ -705,19 +705,13 @@ body{
 }
 
 .media-fallback{
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-content: center;
-  text-align: center;
-  padding: 18px;
-  color: var(--text);
+display: none;
 }
 .media-title{ font-weight: 800; font-size: 18px; }
 .media-sub{ opacity: 0.8; margin-top: 6px; }
 
 .story-media.media-empty{
-  background: radial-gradient(circle at 20% 20%, rgba(176,196,177,0.45), rgba(222,219,210,0.45));
+  display: none;
 }
 
 /* Card */
