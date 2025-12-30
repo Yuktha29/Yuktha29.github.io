@@ -789,122 +789,119 @@ body{
     order: initial;
   }
 }
-/* ---------- Tech Stack page ---------- */
-
-/* ===== Tech Stack (match screenshot) ===== */
+/* =========================
+   TECH STACK — MATCH SCREENSHOT
+   ========================= */
 
 .tech-tabs{
-  display:flex;
-  gap:18px;
-  align-items:stretch;
-  flex-wrap:wrap;
-  margin: 10px 0 26px;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(140px, 1fr));
+  gap: 18px;
+  margin: 18px 0 26px;
 }
 
 .tech-tab{
-  width: 250px;
-  min-height: 120px;
-  background: #ffffff;
-  border: 2px solid rgba(74,87,89,0.10);
-  border-radius: 20px;
+  background: #fff;
+  border: 2px solid rgba(74, 87, 89, 0.18);
+  border-radius: 18px;            /* rounded-square */
+  padding: 22px 14px;
+  text-align: center;
   cursor: pointer;
-
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:12px;
-
-  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease, background 160ms ease;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.08);
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease, background .15s ease;
 }
 
-.tech-ico{
-  font-size: 28px;
+.tech-tab .tech-ico{
+  display: block;
+  font-size: 34px;
   line-height: 1;
-  color: #4A5759;
-  opacity: 0.95;
-}
-
-.tech-name{
-  font-size: 20px;
-  font-weight: 800;
+  margin-bottom: 10px;
   color: #4A5759;
 }
 
-/* Hover effect for ALL tabs */
-.tech-tab:hover{
-  transform: translateY(-3px);
-  box-shadow: 0 16px 30px rgba(0,0,0,0.14);
-  border-color: rgba(74,87,89,0.18);
+.tech-tab .tech-name{
+  display: block;
+  font-weight: 700;
+  font-size: 18px;
+  color: #4A5759;
 }
 
-/* Active tab like screenshot (slight pink fill + darker border) */
+/* active = pink fill + darker outline like screenshot */
 .tech-tab.active{
-  background: rgba(222,219,210,0.35);
-  border-color: rgba(74,87,89,0.45);
-  box-shadow: 0 18px 32px rgba(0,0,0,0.16);
+  background: #F6C9C9;            /* your soft pink */
+  border-color: rgba(74,87,89,0.85);
+  box-shadow: 0 18px 34px rgba(0,0,0,0.10);
 }
 
-/* The big white card */
+/* hover */
+.tech-tab:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 20px 38px rgba(0,0,0,0.12);
+  border-color: rgba(74,87,89,0.45);
+}
+
+/* big white rounded container */
 .tech-card{
-  background: #ffffff;
+  background: #fff;
   border-radius: 26px;
-  padding: 32px 34px;
-  box-shadow: 0 16px 40px rgba(0,0,0,0.14);
+  padding: 32px 32px 26px;
+  box-shadow: 0 22px 44px rgba(0,0,0,0.10);
   border: 1px solid rgba(74,87,89,0.10);
 }
 
 .tech-card-title{
-  font-size: 34px;
-  font-weight: 900;
-  color: #4A5759;
-  display:flex;
-  align-items:center;
-  gap:14px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
   margin: 0 0 22px;
+  font-size: 38px;
+  font-weight: 800;
+  color: #4A5759;
 }
 
 .tech-card-ico{
   font-size: 34px;
-  opacity: 0.9;
-}
-
-/* Skills grid (two rows style like screenshot) */
-.tech-skill-grid{
-  display:grid;
-  grid-template-columns: repeat(4, minmax(180px, 1fr));
-  gap: 22px;
-}
-
-/* Skill pills */
-.tech-skill{
-  background: rgba(176,196,177,0.18);     /* soft tint */
-  border: 1px solid rgba(74,87,89,0.10);
-  border-radius: 14px;
-  padding: 18px 16px;
-  text-align:center;
-  font-size: 20px;
-  font-weight: 800;
+  line-height: 1;
   color: #4A5759;
-  box-shadow: 0 10px 16px rgba(0,0,0,0.08);
-  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+/* SKILL BOXES like screenshot */
+.tech-skill-grid{
+  display: grid;
+  grid-template-columns: repeat(4, minmax(180px, 1fr));
+  gap: 22px 26px;
+  margin-top: 18px;
+}
+
+.tech-skill{
+  background: #F6C9C9;            /* same pink as screenshot */
+  border-radius: 16px;            /* rounded-square */
+  padding: 22px 18px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+  color: #2f3a3c;
+  box-shadow: 0 12px 26px rgba(0,0,0,0.10);
+  border: 1px solid rgba(255,255,255,0.6);
+  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
 }
 
 .tech-skill:hover{
   transform: translateY(-2px);
-  box-shadow: 0 16px 24px rgba(0,0,0,0.12);
-  background: rgba(176,196,177,0.28);
+  box-shadow: 0 18px 34px rgba(0,0,0,0.14);
+  filter: brightness(0.985);
 }
 
 /* Responsive */
-@media (max-width: 1200px){
-  .tech-tab{ width: 220px; }
-  .tech-skill-grid{ grid-template-columns: repeat(2, minmax(180px, 1fr)); }
+@media (max-width: 1100px){
+  .tech-tabs{ grid-template-columns: repeat(3, minmax(160px, 1fr)); }
+  .tech-skill-grid{ grid-template-columns: repeat(2, minmax(200px, 1fr)); }
 }
-@media (max-width: 760px){
-  .tech-tab{ width: 100%; }
+@media (max-width: 650px){
+  .tech-tabs{ grid-template-columns: repeat(2, minmax(150px, 1fr)); }
+  .tech-card{ padding: 22px; }
+  .tech-card-title{ font-size: 30px; }
   .tech-skill-grid{ grid-template-columns: 1fr; }
-  .tech-card-title{ font-size: 28px; }
 }
+
 
