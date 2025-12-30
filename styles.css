@@ -789,3 +789,93 @@ body{
     order: initial;
   }
 }
+/* ---------- Tech Stack page ---------- */
+
+.tech-intro{
+  margin: 10px 0 18px;
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  background: rgba(222,219,210,0.55);
+  border: 1px solid rgba(74,87,89,0.18);
+}
+
+.tech-controls{
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.tech-tabs{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tech-tab{
+  appearance: none;
+  border: 1px solid rgba(74,87,89,0.18);
+  background: rgba(176,196,177,0.22);
+  border-radius: 16px;
+  padding: 10px 14px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.tech-tab:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+}
+
+.tech-tab.is-active{
+  background: rgba(176,196,177,0.55);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.14);
+}
+
+.tech-search input{
+  width: 100%;
+  border: 1px solid rgba(74,87,89,0.18);
+  background: rgba(222,219,210,0.55);
+  border-radius: 16px;
+  padding: 12px 14px;
+  outline: none;
+}
+
+.tech-panel{
+  display: none;
+  border: 1px solid rgba(74,87,89,0.18);
+  background: rgba(222,219,210,0.50);
+  border-radius: 22px;
+  padding: 18px 16px;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.12);
+}
+
+.tech-panel.is-active{ display: block; }
+
+.tech-chipgrid{
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tchip{
+  border: 1px solid rgba(74,87,89,0.18);
+  background: rgba(176,196,177,0.22);
+  border-radius: 999px;
+  padding: 10px 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.tchip:hover{
+  transform: translateY(-2px) scale(1.02);
+  background: rgba(176,196,177,0.45);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+}
+
+/* subtle “sparkle” feel */
+.tech-panel:hover{
+  box-shadow: 0 18px 40px rgba(0,0,0,0.16);
+}

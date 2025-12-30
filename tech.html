@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yuktha Reddy Vanteru | Tech Stack</title>
+  <meta name="description" content="Tech stack for Yuktha Reddy Vanteru" />
+  <link rel="stylesheet" href="./styles.css?v=12">
+</head>
+<body>
+  <!-- Mobile top bar -->
+  <header class="topbar" aria-label="Mobile header">
+    <button class="icon-btn" id="openMenuBtn" aria-label="Open menu" aria-controls="sidebar" aria-expanded="false">☰</button>
+    <div class="topbar-title">Tech Stack</div>
+    <a class="icon-btn icon-link" href="#top" aria-label="Jump to top">↑</a>
+  </header>
+
+  <div class="backdrop" id="backdrop" hidden></div>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar" aria-label="Sidebar navigation">
+    <div class="sidebar-header">
+      <div class="profile profile-centered">
+        <img class="avatar" src="./assets/profile.jpg" alt="Profile photo of Yuktha" />
+        <div class="profile-text">
+          <h1>Yuktha Reddy Vanteru</h1>
+          <p>Full Stack Developer<br/>Software Engineer</p>
+        </div>
+      </div>
+    </div>
+
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-item" href="./index.html"><span class="nav-icon">⌂</span><span>Home</span></a>
+      <a class="nav-item" href="./experiences.html"><span class="nav-icon">▦</span><span>Experiences</span></a>
+      <a class="nav-item" href="./projects.html"><span class="nav-icon">⧉</span><span>Projects</span></a>
+      <a class="nav-item" href="./leadership.html"><span class="nav-icon">👥</span><span>Leadership</span></a>
+      <a class="nav-item active" href="./tech.html"><span class="nav-icon">&lt;/&gt;</span><span>Tech Stack</span></a>
+
+      <a class="nav-item" href="#"><span class="nav-icon">♡</span><span>What I Love To Do</span></a>
+      <a class="nav-item" href="#"><span class="nav-icon">☰</span><span>Blogs</span></a>
+      <a class="nav-item" href="#"><span class="nav-icon">✉</span><span>Contact Me</span></a>
+    </nav>
+
+    <button class="close-btn" id="closeMenuBtn" aria-label="Close menu">Close</button>
+  </aside>
+
+  <!-- Main -->
+  <main class="main" id="top">
+    <div class="page-head">
+      <h2>Tech Stack</h2>
+    </div>
+
+    <section class="tech-intro">
+      <p>Filter by category or search a tool/skill.</p>
+
+      <div class="tech-controls">
+        <div class="tech-tabs" role="tablist" aria-label="Tech categories">
+          <button class="tech-tab is-active" type="button" role="tab" aria-selected="true" data-cat="frontend">Frontend</button>
+          <button class="tech-tab" type="button" role="tab" aria-selected="false" data-cat="backend">Backend</button>
+          <button class="tech-tab" type="button" role="tab" aria-selected="false" data-cat="database">Database</button>
+          <button class="tech-tab" type="button" role="tab" aria-selected="false" data-cat="cloud">Cloud & DevOps</button>
+          <button class="tech-tab" type="button" role="tab" aria-selected="false" data-cat="tools">Tools</button>
+          <button class="tech-tab" type="button" role="tab" aria-selected="false" data-cat="mobile">Mobile</button>
+        </div>
+
+        <label class="tech-search" aria-label="Search tech">
+          <input id="techSearch" type="search" placeholder="Search… (ex: React, AWS, PostgreSQL)" autocomplete="off" />
+        </label>
+      </div>
+    </section>
+
+    <!-- Panels -->
+    <section class="tech-panel is-active" data-panel="frontend" aria-label="Frontend skills">
+      <h3>Frontend</h3>
+      <div class="tech-chipgrid">
+        <button class="tchip">React</button>
+        <button class="tchip">TypeScript</button>
+        <button class="tchip">JavaScript</button>
+        <button class="tchip">HTML/CSS</button>
+        <button class="tchip">Next.js</button>
+        <button class="tchip">Tailwind CSS</button>
+        <button class="tchip">Redux</button>
+        <button class="tchip">UI/UX</button>
+        <button class="tchip">Responsive Design</button>
+      </div>
+    </section>
+
+    <section class="tech-panel" data-panel="backend" aria-label="Backend skills">
+      <h3>Backend</h3>
+      <div class="tech-chipgrid">
+        <button class="tchip">Python</button>
+        <button class="tchip">Flask</button>
+        <button class="tchip">Node.js</button>
+        <button class="tchip">PHP</button>
+        <button class="tchip">REST APIs</button>
+        <button class="tchip">Auth</button>
+        <button class="tchip">Microservices</button>
+        <button class="tchip">ML Pipelines</button>
+      </div>
+    </section>
+
+    <section class="tech-panel" data-panel="database" aria-label="Database skills">
+      <h3>Database</h3>
+      <div class="tech-chipgrid">
+        <button class="tchip">PostgreSQL</button>
+        <button class="tchip">SQL</button>
+        <button class="tchip">BCNF</button>
+        <button class="tchip">Indexing</button>
+        <button class="tchip">Query Optimization</button>
+        <button class="tchip">EXPLAIN ANALYZE</button>
+        <button class="tchip">Data Modeling</button>
+      </div>
+    </section>
+
+    <section class="tech-panel" data-panel="cloud" aria-label="Cloud and DevOps skills">
+      <h3>Cloud & DevOps</h3>
+      <div class="tech-chipgrid">
+        <button class="tchip">AWS EC2</button>
+        <button class="tchip">Docker</button>
+        <button class="tchip">CI/CD</button>
+        <button class="tchip">GitHub Actions</button>
+        <button class="tchip">Linux</button>
+      </div>
+    </section>
+
+    <section class="tech-panel" data-panel="tools" aria-label="Tools">
+      <h3>Tools</h3>
+      <div class="tech-chipgrid">
+        <button class="tchip">Git</button>
+        <button class="tchip">GitHub</button>
+        <button class="tchip">Jira</button>
+        <button class="tchip">Trello</button>
+        <button class="tchip">VS Code</button>
+        <button class="tchip">Figma</button>
+        <button class="tchip">Postman</button>
+      </div>
+    </section>
+
+    <section class="tech-panel" data-panel="mobile" aria-label="Mobile">
+      <h3>Mobile</h3>
+      <div class="tech-chipgrid">
+        <button class="tchip">React Native</button>
+        <button class="tchip">iOS/Android Basics</button>
+      </div>
+    </section>
+
+    <footer class="page-footer">
+      <span>© <span id="year"></span> Yuktha Reddy Vanteru</span>
+    </footer>
+  </main>
+
+  <script src="./script.js?v=12" defer></script>
+</body>
+</html>

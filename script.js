@@ -180,3 +180,49 @@ function setActiveNavByPage() {
 }
 
 document.addEventListener("DOMContentLoaded", setActiveNavByPage);
+
+// Tech Stack tabs + search
+(function () {
+  const tabs = document.querySelectorAll(".tech-tab");
+  const panels = document.querySelectorAll(".tech-panel");
+  const search = document.getElementById("techSearch");
+
+  if (!tabs.length || !panels.length) return;
+
+  function setActive(cat) {
+    tabs.forEach((t) => {
+      const on = t.dataset.cat === cat;
+      t.classList.toggle("is-active", on);
+      t.setAttribute("aria-selected", on ? "true" : "false");
+    });
+
+    panels.forEach((p) => {
+      p.classList.toggle("is-active", p.dataset.panel === cat);
+    });
+
+    // clear any previous search filtering when switching categories
+    if (search) {
+      search.value = "";
+      panels.forEach((p) => {
+        p.querySelectorAll(".tchip").forEach((c) => (c.style.display = ""));
+      });
+    }
+  }
+
+  tabs.forEach((t) => {
+    t.addEventListener("click", () => setActive(t.dataset.cat));
+  });
+
+  if (search) {
+    search.addEventListener("input", () => {
+      const q = search.value.trim().toLowerCase();
+      const activePanel = document.querySelector(".tech-panel.is-active");
+      if (!activePanel) return;
+
+      activePanel.querySelectorAll(".tchip").forEach((chip) => {
+        const show = chip.textContent.toLowerCase().includes(q);
+        chip.style.display = show ? "" : "none";
+      });
+    });
+  }
+})();
