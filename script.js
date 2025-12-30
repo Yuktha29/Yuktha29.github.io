@@ -3,14 +3,16 @@ const backdrop = document.getElementById("backdrop");
 const openBtn = document.getElementById("openMenuBtn");
 const closeBtn = document.getElementById("closeMenuBtn");
 
-function openMenu(){
+function openMenu() {
   sidebar.classList.add("open");
   backdrop.hidden = false;
+  backdrop.classList.add("show");
   openBtn?.setAttribute("aria-expanded", "true");
 }
 
-function closeMenu(){
+function closeMenu() {
   sidebar.classList.remove("open");
+  backdrop.classList.remove("show");
   backdrop.hidden = true;
   openBtn?.setAttribute("aria-expanded", "false");
 }
@@ -119,6 +121,7 @@ document.querySelectorAll(".nav-item").forEach((item) => {
 })();
 
 // Projects: only one open at a time
+// Projects: only one open at a time
 (function () {
   const headers = document.querySelectorAll(".proj-header");
   if (!headers.length) return;
@@ -140,8 +143,8 @@ document.querySelectorAll(".nav-item").forEach((item) => {
 
       const isOpen = btn.getAttribute("aria-expanded") === "true";
 
-      closeAll();                 // close everything first
-      if (!isOpen) {              // then open only the clicked one
+      closeAll();                 
+      if (!isOpen) {              
         btn.setAttribute("aria-expanded", "true");
         panel.hidden = false;
       }
@@ -151,6 +154,7 @@ document.querySelectorAll(".nav-item").forEach((item) => {
   const y = document.getElementById("year");
   if (y) y.textContent = new Date().getFullYear();
 })();
+
 
 function setActiveNavByPage() {
   const current = (location.pathname.split("/").pop() || "index.html").toLowerCase();
