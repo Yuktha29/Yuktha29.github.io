@@ -4,6 +4,8 @@
   --accent: #B0C4B1;  /* accent */
   --text: #4A5759;    /* text */
 
+  --highlight: rgba(176,196,177,0.45); /* replaces pink */
+
   /* derived */
   --card: rgba(222, 219, 210, 0.72);
   --card-strong: rgba(222, 219, 210, 0.88);
@@ -828,7 +830,7 @@ body{
 
 /* active = pink fill + darker outline like screenshot */
 .tech-tab.active{
-  background: #F6C9C9;            /* your soft pink */
+  background: var(--highlight);  /* accent */
   border-color: rgba(74,87,89,0.85);
   box-shadow: 0 18px 34px rgba(0,0,0,0.10);
 }
@@ -874,7 +876,7 @@ body{
 }
 
 .tech-skill{
-  background: #F6C9C9;            /* same pink as screenshot */
+  background: rgba(176,196,177,0.35);           
   border-radius: 16px;            /* rounded-square */
   padding: 22px 18px;
   text-align: center;
