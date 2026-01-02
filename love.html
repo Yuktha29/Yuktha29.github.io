@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yuktha Reddy Vanteru | What I Love To Do</title>
+  <meta name="description" content="Interests and hobbies for Yuktha Reddy Vanteru" />
+  <link rel="stylesheet" href="./styles.css?v=1">
+</head>
+<body>
+  <!-- Mobile top bar -->
+  <header class="topbar" aria-label="Mobile header">
+    <button class="icon-btn" id="openMenuBtn" aria-label="Open menu" aria-controls="sidebar" aria-expanded="false">☰</button>
+    <div class="topbar-title">What I Love To Do</div>
+    <a class="icon-btn icon-link" href="#top" aria-label="Jump to top">↑</a>
+  </header>
+
+  <div class="backdrop" id="backdrop" hidden></div>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar" aria-label="Sidebar navigation">
+    <div class="sidebar-header">
+      <div class="profile profile-centered">
+        <img class="avatar" src="./assets/profile.jpg" alt="Profile photo of Yuktha" />
+        <div class="profile-text">
+          <h1>Yuktha Reddy Vanteru</h1>
+          <p>Full Stack Developer<br/>Software Engineer</p>
+        </div>
+      </div>
+    </div>
+
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-item" href="./index.html"><span class="nav-icon">⌂</span><span>Home</span></a>
+      <a class="nav-item" href="./experiences.html"><span class="nav-icon">▦</span><span>Experiences</span></a>
+      <a class="nav-item" href="./projects.html"><span class="nav-icon">⧉</span><span>Projects</span></a>
+      <a class="nav-item" href="./leadership.html"><span class="nav-icon">👥</span><span>Leadership</span></a>
+      <a class="nav-item" href="./tech.html"><span class="nav-icon">&lt;/&gt;</span><span>Tech Stack</span></a>
+
+      <a class="nav-item active" href="./love.html"><span class="nav-icon">♡</span><span>What I Love To Do</span></a>
+      <a class="nav-item" href="./blogs.html"><span class="nav-icon">☰</span><span>Blogs</span></a>
+      <a class="nav-item" href="./contact.html"><span class="nav-icon">✉</span><span>Contact Me</span></a>
+    </nav>
+
+    <button class="close-btn" id="closeMenuBtn" aria-label="Close menu">Close</button>
+  </aside>
+
+  <!-- Main -->
+  <main class="main" id="top">
+    <div class="page-head">
+      <h2>What I Love To Do</h2>
+    </div>
+
+    <section class="exp-intro">
+      <p>
+        Beyond coding and technology, I stay balanced through hobbies that keep me creative, disciplined, and energized.
+      </p>
+    </section>
+
+    <section class="hobby-grid" aria-label="What I love to do">
+      <!-- Reading -->
+      <article class="hobby-card">
+        <div class="hobby-icon" aria-hidden="true">📚</div>
+        <h3>Reading</h3>
+        <p>
+          I’m a huge fan of mystery and fantasy—Sherlock Holmes, Agatha Christie, and Harry Potter are my favorites.
+          I love getting lost in novels, and honestly, books feel like my best friends.
+        </p>
+      </article>
+
+      <!-- Singing -->
+      <article class="hobby-card">
+        <div class="hobby-icon" aria-hidden="true">🎤</div>
+        <h3>Singing</h3>
+        <p>
+          I’ve trained in Indian classical singing since I was 4. I’m passionate about performing,
+          competed throughout school, and even advanced to national-level competitions.
+        </p>
+      </article>
+
+      <!-- Dance -->
+      <article class="hobby-card">
+        <div class="hobby-icon" aria-hidden="true">💃</div>
+        <h3>Dance</h3>
+        <p>
+          I learned classical Kuchipudi as a kid and still dance through clubs at the University at Buffalo.
+          I’ve performed at International Fiesta in 2023, 2024, and 2025, dancing always boosts my mood.
+        </p>
+      </article>
+
+      <!-- Travel -->
+      <article class="hobby-card">
+        <div class="hobby-icon" aria-hidden="true">✈️</div>
+        <h3>Travel</h3>
+        <p>
+          I love adventurous trips—camping, kayaking, and exploring new places. In 2023, I traveled ~3,000 miles in 15 days
+          and covered most of the U.S. East Coast. I’ve also explored many places across Hyderbad, a vibrant city where centuries, old heritage meets a booming global tech and startup ecosystem..
+        </p>
+      </article>
+
+      <!-- Martial Arts -->
+      <article class="hobby-card">
+        <div class="hobby-icon" aria-hidden="true">🥋</div>
+        <h3>Martial Arts</h3>
+        <p>
+          I trained in Karate during childhood and earned 3rd place at the state level. Martial arts shaped my discipline,
+          confidence, and focus.
+        </p>
+      </article>
+    </section>
+
+    <footer class="page-footer">
+      <span>© <span id="year"></span> Yuktha Reddy Vanteru</span>
+    </footer>
+  </main>
+
+  <script src="./script.js?v=1" defer></script>
+</body>
+</html>
