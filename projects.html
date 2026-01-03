@@ -18,6 +18,21 @@
   <div class="backdrop" id="backdrop" hidden></div>
 
   <!-- Sidebar -->
+
+  <div class="sidebar-top" aria-hidden="false">
+  <img class="mascot" src="./assets/snoopy.gif" alt="Mascot" />
+
+  <button class="sidebar-toggle" id="sidebarToggle" aria-label="Collapse sidebar" aria-pressed="false">
+    <span class="toggle-glyph" aria-hidden="true"></span>
+    <span class="toggle-chev" aria-hidden="true">›</span>
+  </button>
+</div>
+
+<!-- Rope SVG overlay (stays in header area) -->
+<svg class="rope-svg" viewBox="0 0 320 140" preserveAspectRatio="none" aria-hidden="true">
+  <path class="rope-path" id="ropePath" d=""></path>
+</svg>
+
   <aside class="sidebar" id="sidebar" aria-label="Sidebar navigation">
     <div class="sidebar-header">
       <div class="profile">

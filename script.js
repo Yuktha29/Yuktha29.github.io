@@ -219,3 +219,109 @@ document.addEventListener("DOMContentLoaded", setActiveNavByPage);
   if (first) render(first.dataset.cat);
 })();
 
+(function () {
+  const body = document.body;
+  const toggleBtn = document.getElementById("sidebarToggle");
+  const ropePath = document.getElementById("ropePath");
+  const mascot = document.querySelector(".mascot");
+  const sidebar = document.getElementById("sidebar");
+
+  if (!toggleBtn || !ropePath || !mascot || !sidebar) return;
+
+  // Persist state
+  const saved = localStorage.getItem("sidebarCollapsed");
+  if (saved === "1") body.classList.add("sidebar-collapsed");
+
+  // Helpers
+  const lerp = (a, b, t) => a + (b - a) * t;
+
+  function getPoint(el, offsetX = 0.75, offsetY = 0.65) {
+    const r = el.getBoundingClientRect();
+    // point in sidebar-local coordinates (top-left of sidebar header area)
+    const sidebarRect = sidebar.getBoundingClientRect();
+    return {
+      x: (r.left - sidebarRect.left) + r.width * offsetX,
+      y: (r.top - sidebarRect.top) + r.height * offsetY,
+    };
+  }
+
+  // Rope endpoints (start = mascot hand-ish, end = either hanging or button)
+  let currentEnd = null;
+  let targetEnd = null;
+
+  function setRope(start, end, sag = 18) {
+    // simple quadratic curve with sag
+    const midX = (start.x + end.x) / 2;
+    const midY = (start.y + end.y) / 2 + sag;
+    ropePath.setAttribute(
+      "d",
+      `M ${start.x.toFixed(1)} ${start.y.toFixed(1)} Q ${midX.toFixed(1)} ${midY.toFixed(1)} ${end.x.toFixed(1)} ${end.y.toFixed(1)}`
+    );
+  }
+
+  function computeStart() {
+    // adjust these if you want the rope to originate from a specific spot on the GIF
+    return getPoint(mascot, 0.80, 0.70);
+  }
+
+  function computeHangingEnd() {
+    // “hanging” target: somewhere below/right in header area
+    const baseX = body.classList.contains("sidebar-collapsed") ? 55 : 140;
+    return { x: baseX, y: 120 };
+  }
+
+  function computeButtonEnd() {
+    return getPoint(toggleBtn, 0.50, 0.50);
+  }
+
+  // Smoothly animate rope end toward target
+  let raf = null;
+  function animateRope() {
+    const start = computeStart();
+    if (!currentEnd) currentEnd = computeHangingEnd();
+    if (!targetEnd) targetEnd = computeHangingEnd();
+
+    currentEnd = {
+      x: lerp(currentEnd.x, targetEnd.x, 0.18),
+      y: lerp(currentEnd.y, targetEnd.y, 0.18),
+    };
+
+    const pulling = body.classList.contains("rope-pulling");
+    const sag = pulling ? 6 : 22;
+
+    setRope(start, currentEnd, sag);
+
+    raf = requestAnimationFrame(animateRope);
+  }
+
+  // Start rope loop
+  animateRope();
+  window.addEventListener("resize", () => {
+    // snap a bit on resize so it doesn’t drift weird
+    currentEnd = body.classList.contains("rope-pulling") ? computeButtonEnd() : computeHangingEnd();
+  });
+
+  function doPullAnimationAndToggle() {
+    // Rope shoots to button, then sidebar collapses/opens
+    body.classList.add("rope-pulling");
+    targetEnd = computeButtonEnd();
+
+    // After the rope "connects", toggle the sidebar width
+    setTimeout(() => {
+      const isCollapsed = body.classList.toggle("sidebar-collapsed");
+      localStorage.setItem("sidebarCollapsed", isCollapsed ? "1" : "0");
+      toggleBtn.setAttribute("aria-pressed", isCollapsed ? "true" : "false");
+    }, 220);
+
+    // Let rope relax back to hanging after the sidebar finishes moving
+    setTimeout(() => {
+      body.classList.remove("rope-pulling");
+      targetEnd = computeHangingEnd();
+    }, 720);
+  }
+
+  toggleBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    doPullAnimationAndToggle();
+  });
+})();
