@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yuktha Reddy Vanteru | Blogs</title>
+  <meta name="description" content="Blog posts by Yuktha Reddy Vanteru" />
+  <link rel="stylesheet" href="./styles.css?v=10">
+</head>
+
+<body>
+  <!-- Mobile top bar -->
+  <header class="topbar" aria-label="Mobile header">
+    <button class="icon-btn" id="openMenuBtn" aria-label="Open menu" aria-controls="sidebar" aria-expanded="false">☰</button>
+    <div class="topbar-title">Blogs</div>
+    <a class="icon-btn icon-link" href="#top" aria-label="Jump to top">↑</a>
+  </header>
+
+  <div class="backdrop" id="backdrop" hidden></div>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar" aria-label="Sidebar navigation">
+    <div class="sidebar-header">
+      <div class="profile profile-centered">
+        <img class="avatar" src="./assets/profile.jpg" alt="Profile photo of Yuktha" />
+        <div class="profile-text">
+          <h1>Yuktha Reddy Vanteru</h1>
+          <p>Full Stack Developer<br/>Software Engineer</p>
+        </div>
+      </div>
+    </div>
+
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-item" href="./index.html"><span class="nav-icon">⌂</span><span>Home</span></a>
+      <a class="nav-item" href="./experiences.html"><span class="nav-icon">▦</span><span>Experiences</span></a>
+      <a class="nav-item" href="./projects.html"><span class="nav-icon">⧉</span><span>Projects</span></a>
+      <a class="nav-item" href="./leadership.html"><span class="nav-icon">👥</span><span>Leadership</span></a>
+
+      <a class="nav-item" href="./tech.html"><span class="nav-icon">&lt;/&gt;</span><span>Tech Stack</span></a>
+      <a class="nav-item" href="./love.html"><span class="nav-icon">♡</span><span>What I Love To Do</span></a>
+
+      <a class="nav-item active" href="./blogs.html"><span class="nav-icon">☰</span><span>Blogs</span></a>
+      <a class="nav-item" href="./contact.html"><span class="nav-icon">✉</span><span>Contact Me</span></a>
+    </nav>
+
+    <button class="close-btn" id="closeMenuBtn" aria-label="Close menu">Close</button>
+  </aside>
+
+  <!-- Main -->
+  <main class="main" id="top">
+    <div class="page-head">
+      <h2>Blogs</h2>
+    </div>
+
+    <section class="blog-intro">
+      <p>
+        I enjoy sharing what I’m learning — from building projects to improving as a developer.
+        Use the search + filters to find posts quickly.
+      </p>
+
+      <div class="blog-controls" role="region" aria-label="Blog filters">
+        <div class="blog-search">
+          <span class="blog-search-ico">⌕</span>
+          <input id="blogSearch" type="search" placeholder="Search posts (title, tags)…" aria-label="Search blog posts" />
+        </div>
+
+        <div class="blog-filters" aria-label="Category filters">
+          <button class="blog-filter active" type="button" data-filter="all">All</button>
+          <button class="blog-filter" type="button" data-filter="react">React</button>
+          <button class="blog-filter" type="button" data-filter="typescript">TypeScript</button>
+          <button class="blog-filter" type="button" data-filter="career">Career</button>
+          <button class="blog-filter" type="button" data-filter="systems">Systems</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="blog-list" aria-label="Blog posts">
+      <!-- Post 1 -->
+      <article class="blog-card" data-tags="react architecture best-practices">
+        <a class="blog-card-link" href="./blog-post.html" aria-label="Open blog post">
+          <div class="blog-card-top">
+            <h3>Building Scalable React Applications: Best Practices</h3>
+            <div class="blog-meta">
+              <span>📅 Dec 15, 2024</span>
+              <span>•</span>
+              <span>⏱ 5 min read</span>
+            </div>
+          </div>
+
+          <p class="blog-desc">
+            Architectural patterns and practical tips for building React apps that stay maintainable as they grow.
+          </p>
+
+          <div class="blog-tags" aria-label="Post tags">
+            <span class="blog-tag">React</span>
+            <span class="blog-tag">Architecture</span>
+            <span class="blog-tag">Best Practices</span>
+          </div>
+        </a>
+      </article>
+
+      <!-- Post 2 -->
+      <article class="blog-card" data-tags="career personal-growth advice">
+        <a class="blog-card-link" href="./blog-post.html" aria-label="Open blog post">
+          <div class="blog-card-top">
+            <h3>My Journey from Junior to Senior Developer</h3>
+            <div class="blog-meta">
+              <span>📅 Nov 28, 2024</span>
+              <span>•</span>
+              <span>⏱ 8 min read</span>
+            </div>
+          </div>
+
+          <p class="blog-desc">
+            Lessons learned, challenges overcome, and what helped me level up (habits, projects, feedback loops).
+          </p>
+
+          <div class="blog-tags" aria-label="Post tags">
+            <span class="blog-tag">Career</span>
+            <span class="blog-tag">Personal Growth</span>
+            <span class="blog-tag">Advice</span>
+          </div>
+        </a>
+      </article>
+
+      <!-- Post 3 -->
+      <article class="blog-card" data-tags="typescript javascript programming">
+        <a class="blog-card-link" href="./blog-post.html" aria-label="Open blog post">
+          <div class="blog-card-top">
+            <h3>TypeScript Tips and Tricks for Better Code</h3>
+            <div class="blog-meta">
+              <span>📅 Nov 10, 2024</span>
+              <span>•</span>
+              <span>⏱ 6 min read</span>
+            </div>
+          </div>
+
+          <p class="blog-desc">
+            Practical TypeScript patterns that improve type-safety, readability, and refactoring confidence.
+          </p>
+
+          <div class="blog-tags" aria-label="Post tags">
+            <span class="blog-tag">TypeScript</span>
+            <span class="blog-tag">JavaScript</span>
+            <span class="blog-tag">Programming</span>
+          </div>
+        </a>
+      </article>
+    </section>
+
+    <footer class="page-footer">
+      <span>© <span id="year"></span> Yuktha Reddy Vanteru</span>
+    </footer>
+  </main>
+
+  <script src="./script.js?v=10" defer></script>
+
+  <!-- Optional: tiny filter/search behavior (no framework) -->
+  <script>
+    (function () {
+      const yearEl = document.getElementById("year");
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      const search = document.getElementById("blogSearch");
+      const cards = Array.from(document.querySelectorAll(".blog-card"));
+      const filterBtns = Array.from(document.querySelectorAll(".blog-filter"));
+
+      let activeFilter = "all";
+
+      function normalize(s){ return (s || "").toLowerCase().trim(); }
+
+      function apply(){
+        const q = normalize(search?.value);
+        cards.forEach(card => {
+          const title = normalize(card.querySelector("h3")?.textContent);
+          const tags = normalize(card.getAttribute("data-tags"));
+          const matchesQuery = !q || title.includes(q) || tags.includes(q);
+          const matchesFilter = activeFilter === "all" || tags.includes(activeFilter);
+          card.style.display = (matchesQuery && matchesFilter) ? "" : "none";
+        });
+      }
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+          filterBtns.forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          activeFilter = btn.getAttribute("data-filter") || "all";
+          apply();
+        });
+      });
+
+      search?.addEventListener("input", apply);
+    })();
+  </script>
+</body>
+</html>
