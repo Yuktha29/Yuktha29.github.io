@@ -1164,158 +1164,84 @@ display: none;
   .quick-actions{ grid-template-columns: 1fr; }
 }
 
-/* =========================
-   SIDEBAR — SNOOPY + COLLAPSE
-========================= */
+/* =========================================================
+   FIX: Snoopy + Rope + Toggle positioning (works with your HTML)
+   ========================================================= */
 
-.sidebar-header{
-  position: relative;
-}
-
-/* top strip to hold snoopy (left) + toggle (right) */
+/* Pin the top strip to the sidebar area (NOT the whole page content) */
 .sidebar-top{
-  position: absolute;
+  position: fixed;              /* was absolute */
   top: 10px;
-  left: 12px;
-  right: 12px;
+  left: 0;
+  width: var(--sidebar-w);
   height: 44px;
+  padding: 0 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  pointer-events: none; /* let only children control clicks */
+  z-index: 76;                  /* above sidebar */
+  pointer-events: none;         /* only kids clickable */
+  transition: width 360ms cubic-bezier(.2,.9,.2,1);
 }
 
-/* Snoopy/mascot */
-.mascot{
-  width: 42px;
-  height: 42px;
-  object-fit: contain;
-  border-radius: 12px;
+.sidebar-top .mascot,
+.sidebar-top .sidebar-toggle{
   pointer-events: auto;
-  filter: drop-shadow(0 10px 14px rgba(0,0,0,0.12));
-  transform-origin: 70% 80%;
 }
 
-/* small square “tab close” button */
-.sidebar-toggle{
-  width: 38px;
-  height: 38px;
-  border-radius: 10px;
-  border: 1px solid rgba(74,87,89,0.20);
-  background: rgba(222,219,210,0.75);
-  box-shadow: 0 10px 18px rgba(74,87,89,0.10);
-  cursor: pointer;
-  pointer-events: auto;
-  display: grid;
-  place-items: center;
-  position: relative;
-}
-
-/* create a “panel” icon inside the square so it reads as “tabs” */
-.sidebar-toggle .toggle-glyph{
-  width: 18px;
-  height: 18px;
-  border-radius: 4px;
-  border: 1px solid rgba(74,87,89,0.45);
-  position: relative;
-  opacity: 0.9;
-}
-.sidebar-toggle .toggle-glyph::before{
-  content: "";
-  position: absolute;
-  top: 2px; bottom: 2px;
-  left: 4px;
-  width: 3px;
-  border-radius: 2px;
-  background: rgba(74,87,89,0.45);
-}
-/* little chevron that flips when collapsed */
-.sidebar-toggle .toggle-chev{
-  position: absolute;
-  right: 6px;
-  bottom: 5px;
-  font-size: 12px;
-  font-weight: 950;
-  opacity: 0.75;
-  transform: rotate(0deg);
-  transition: transform 240ms ease;
-}
-body.sidebar-collapsed .sidebar-toggle .toggle-chev{
-  transform: rotate(180deg);
-}
-
-/* Rope SVG sits on top of sidebar header */
+/* Rope overlay pinned to the sidebar area */
 .rope-svg{
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 140px; /* enough to cover header area */
+  position: fixed;              /* was absolute */
+  top: 0;
+  left: 0;
+  width: var(--sidebar-w);
+  height: 140px;
+  z-index: 75;
   pointer-events: none;
-  overflow: visible;
-  z-index: 2;
+  transition: width 360ms cubic-bezier(.2,.9,.2,1);
 }
+
+/* Keep rope drawing ABOVE sidebar background but not covering main */
 .rope-path{
-  fill: none;
   stroke: rgba(74,87,89,0.55);
   stroke-width: 2.5;
-  stroke-linecap: round;
-  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.10));
 }
 
-/* idle rope “hanging” sway */
-body:not(.rope-pulling) .rope-path{
-  animation: rope-sway 2.6s ease-in-out infinite;
-  transform-origin: 30px 30px;
-}
-@keyframes rope-sway{
-  0%{ transform: rotate(-1deg); }
-  50%{ transform: rotate(1deg); }
-  100%{ transform: rotate(-1deg); }
+/* Make sure the sidebar itself sits under the top strip */
+.sidebar{
+  z-index: 70;
 }
 
-/* pulling moment: mascot leans + rope stops swaying */
-body.rope-pulling .rope-path{ animation: none; }
-body.rope-pulling .mascot{
-  animation: mascot-pull 500ms ease-in-out;
-}
-@keyframes mascot-pull{
-  0%{ transform: translateX(0) rotate(0deg); }
-  40%{ transform: translateX(8px) rotate(-6deg); }
-  100%{ transform: translateX(0) rotate(0deg); }
-}
-
-/* Collapse: make nav look good in rail mode */
-body.sidebar-collapsed .profile-text,
-body.sidebar-collapsed .profile-text h1,
-body.sidebar-collapsed .profile-text p{
-  opacity: 0;
-  height: 0;
-  margin: 0;
-  overflow: hidden;
-}
-
-body.sidebar-collapsed .avatar{
-  width: 54px;
-  height: 54px;
-  border-width: 3px;
-}
-
-body.sidebar-collapsed .nav-item{
-  justify-content: center;
-  padding: 12px 10px;
-}
-
-body.sidebar-collapsed .nav-item span:last-child{
-  display: none; /* hide labels */
-}
-
-body.sidebar-collapsed .nav-icon{
-  width: 38px;
-  height: 38px;
-  border-radius: 14px;
-}
-
-/* give header room so the absolute top strip doesn't overlap profile */
+/* Give sidebar header breathing room so Snoopy row doesn't overlap avatar */
 .sidebar-header{
-  padding-top: 62px; /* important */
+  padding-top: 62px; /* you already had this; keep it */
 }
+
+/* =========================================================
+   FIX: Quick actions alignment (because you placed it outside <main>)
+   ========================================================= */
+.quick-actions{
+  margin-left: var(--sidebar-w);
+  padding: 0 18px;
+  transition: margin-left 360ms cubic-bezier(.2,.9,.2,1);
+}
+
+/* =========================================================
+   FIX: Mobile layout (main should NOT be pushed right)
+   ========================================================= */
+@media (max-width: 760px){
+  .main{ margin-left: 0; }
+
+  /* If you keep .sidebar-top/.rope-svg outside <aside>, hide them on mobile
+     (otherwise they'll float even when sidebar is offscreen) */
+  .sidebar-top,
+  .rope-svg{
+    display: none;
+  }
+
+  .quick-actions{
+    margin-left: 0;
+    padding: 0 14px;
+  }
+}
+

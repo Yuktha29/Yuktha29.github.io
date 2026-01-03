@@ -222,35 +222,46 @@ document.addEventListener("DOMContentLoaded", setActiveNavByPage);
 (function () {
   const body = document.body;
   const toggleBtn = document.getElementById("sidebarToggle");
+  const ropeSvg = document.getElementById("ropeSvg");
   const ropePath = document.getElementById("ropePath");
   const mascot = document.querySelector(".mascot");
-  const sidebar = document.getElementById("sidebar");
+  const sidebarEl = document.getElementById("sidebar");
 
-  if (!toggleBtn || !ropePath || !mascot || !sidebar) return;
+  if (!toggleBtn || !ropeSvg || !ropePath || !mascot || !sidebarEl) return;
 
-  // Persist state
+  // Persist collapsed state
   const saved = localStorage.getItem("sidebarCollapsed");
-  if (saved === "1") body.classList.add("sidebar-collapsed");
+  const collapsedOnLoad = saved === "1";
+  body.classList.toggle("sidebar-collapsed", collapsedOnLoad);
+  toggleBtn.setAttribute("aria-pressed", collapsedOnLoad ? "true" : "false");
 
-  // Helpers
   const lerp = (a, b, t) => a + (b - a) * t;
 
-  function getPoint(el, offsetX = 0.75, offsetY = 0.65) {
-    const r = el.getBoundingClientRect();
-    // point in sidebar-local coordinates (top-left of sidebar header area)
-    const sidebarRect = sidebar.getBoundingClientRect();
+  function svgInfo() {
+    const r = ropeSvg.getBoundingClientRect();
+    const vb = ropeSvg.viewBox?.baseVal;
+    const vbW = vb?.width || 320;
+    const vbH = vb?.height || 140;
+    return { r, vbW, vbH };
+  }
+
+  // Convert an element point (in viewport px) into SVG viewBox units
+  function elPointToSvg(el, ox = 0.8, oy = 0.7) {
+    const { r, vbW, vbH } = svgInfo();
+    const er = el.getBoundingClientRect();
+
+    const px = (er.left + er.width * ox) - r.left;
+    const py = (er.top + er.height * oy) - r.top;
+
     return {
-      x: (r.left - sidebarRect.left) + r.width * offsetX,
-      y: (r.top - sidebarRect.top) + r.height * offsetY,
+      x: (px / r.width) * vbW,
+      y: (py / r.height) * vbH,
+      vbW,
+      vbH,
     };
   }
 
-  // Rope endpoints (start = mascot hand-ish, end = either hanging or button)
-  let currentEnd = null;
-  let targetEnd = null;
-
   function setRope(start, end, sag = 18) {
-    // simple quadratic curve with sag
     const midX = (start.x + end.x) / 2;
     const midY = (start.y + end.y) / 2 + sag;
     ropePath.setAttribute(
@@ -260,23 +271,27 @@ document.addEventListener("DOMContentLoaded", setActiveNavByPage);
   }
 
   function computeStart() {
-    // adjust these if you want the rope to originate from a specific spot on the GIF
-    return getPoint(mascot, 0.80, 0.70);
-  }
-
-  function computeHangingEnd() {
-    // “hanging” target: somewhere below/right in header area
-    const baseX = body.classList.contains("sidebar-collapsed") ? 55 : 140;
-    return { x: baseX, y: 120 };
+    // “hand-ish” point on gif
+    return elPointToSvg(mascot, 0.88, 0.72);
   }
 
   function computeButtonEnd() {
-    return getPoint(toggleBtn, 0.50, 0.50);
+    return elPointToSvg(toggleBtn, 0.5, 0.5);
   }
 
-  // Smoothly animate rope end toward target
+  function computeHangingEnd() {
+    const { vbW } = svgInfo();
+    const isCollapsed = body.classList.contains("sidebar-collapsed");
+    // hang somewhere below in the header area; shift left when collapsed
+    return { x: isCollapsed ? 70 : vbW * 0.55, y: 125 };
+  }
+
+  // Rope animation state
+  let currentEnd = null;
+  let targetEnd = null;
   let raf = null;
-  function animateRope() {
+
+  function tick() {
     const start = computeStart();
     if (!currentEnd) currentEnd = computeHangingEnd();
     if (!targetEnd) targetEnd = computeHangingEnd();
@@ -287,33 +302,32 @@ document.addEventListener("DOMContentLoaded", setActiveNavByPage);
     };
 
     const pulling = body.classList.contains("rope-pulling");
-    const sag = pulling ? 6 : 22;
+    setRope(start, currentEnd, pulling ? 6 : 22);
 
-    setRope(start, currentEnd, sag);
-
-    raf = requestAnimationFrame(animateRope);
+    raf = requestAnimationFrame(tick);
   }
 
-  // Start rope loop
-  animateRope();
+  tick();
+
   window.addEventListener("resize", () => {
-    // snap a bit on resize so it doesn’t drift weird
-    currentEnd = body.classList.contains("rope-pulling") ? computeButtonEnd() : computeHangingEnd();
+    // snap on resize
+    currentEnd = body.classList.contains("rope-pulling")
+      ? computeButtonEnd()
+      : computeHangingEnd();
   });
 
   function doPullAnimationAndToggle() {
-    // Rope shoots to button, then sidebar collapses/opens
     body.classList.add("rope-pulling");
     targetEnd = computeButtonEnd();
 
-    // After the rope "connects", toggle the sidebar width
+    // toggle during the “pull”
     setTimeout(() => {
       const isCollapsed = body.classList.toggle("sidebar-collapsed");
       localStorage.setItem("sidebarCollapsed", isCollapsed ? "1" : "0");
       toggleBtn.setAttribute("aria-pressed", isCollapsed ? "true" : "false");
     }, 220);
 
-    // Let rope relax back to hanging after the sidebar finishes moving
+    // relax back to hanging rope
     setTimeout(() => {
       body.classList.remove("rope-pulling");
       targetEnd = computeHangingEnd();
