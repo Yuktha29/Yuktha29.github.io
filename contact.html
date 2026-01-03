@@ -3,86 +3,104 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Me</title>
-  <link rel="stylesheet" href="./contact.css" />
+  <title>Yuktha Reddy Vanteru | Contact</title>
+  <meta name="description" content="Contact Yuktha Reddy Vanteru" />
+  <link rel="stylesheet" href="./styles.css?v=10">
 </head>
-
 <body>
-  <main class="contact-page">
-    <header class="contact-head">
-      <h1>Contact Me</h1>
-    </header>
+  <!-- Mobile top bar -->
+  <header class="topbar" aria-label="Mobile header">
+    <button class="icon-btn" id="openMenuBtn" aria-label="Open menu" aria-controls="sidebar" aria-expanded="false">☰</button>
+    <div class="topbar-title">Contact</div>
+    <a class="icon-btn icon-link" href="#top" aria-label="Jump to top">↑</a>
+  </header>
 
-    <section class="contact-hero">
+  <div class="backdrop" id="backdrop" hidden></div>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar" aria-label="Sidebar navigation">
+    <div class="sidebar-header">
+      <div class="profile profile-centered">
+        <img class="avatar" src="./assets/profile.jpg" alt="Profile photo of Yuktha" />
+        <div class="profile-text">
+          <h1>Yuktha Reddy Vanteru</h1>
+          <p>Full Stack Developer<br/>Software Engineer</p>
+        </div>
+      </div>
+    </div>
+
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-item" href="./index.html"><span class="nav-icon">⌂</span><span>Home</span></a>
+      <a class="nav-item" href="./experiences.html"><span class="nav-icon">▦</span><span>Experiences</span></a>
+      <a class="nav-item" href="./projects.html"><span class="nav-icon">⧉</span><span>Projects</span></a>
+      <a class="nav-item" href="./leadership.html"><span class="nav-icon">👥</span><span>Leadership</span></a>
+
+      <a class="nav-item" href="./tech.html"><span class="nav-icon">&lt;/&gt;</span><span>Tech Stack</span></a>
+      <a class="nav-item" href="./love.html"><span class="nav-icon">♡</span><span>What I Love To Do</span></a>
+      <a class="nav-item" href="./blogs.html"><span class="nav-icon">☰</span><span>Blogs</span></a>
+
+      <a class="nav-item active" href="./contact.html"><span class="nav-icon">✉</span><span>Contact Me</span></a>
+    </nav>
+
+    <button class="close-btn" id="closeMenuBtn" aria-label="Close menu">Close</button>
+  </aside>
+
+  <!-- Main -->
+  <main class="main" id="top">
+    <div class="page-head">
+      <h2>Contact Me</h2>
+    </div>
+
+    <section class="contact-intro">
       <p>
-        I'd love to hear from you! Whether you have a question, want to collaborate, or just want to say hi, feel free to
-        reach out through any of these channels.
+        Want to collaborate, ask a question, or just say hi? Here are the easiest ways to reach me.
       </p>
     </section>
 
-    <section class="contact-grid" aria-label="Contact channels">
-      <!-- Email -->
-      <div class="contact-card">
-        <div class="contact-icon" aria-hidden="true">
-          <!-- mail icon -->
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="M4 7.5A2.5 2.5 0 0 1 6.5 5h11A2.5 2.5 0 0 1 20 7.5v9A2.5 2.5 0 0 1 17.5 19h-11A2.5 2.5 0 0 1 4 16.5v-9Z" stroke="currentColor" stroke-width="2"/>
-            <path d="M6 8l6 5 6-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <div>
+    <section class="contact-grid" aria-label="Contact methods">
+      <a class="contact-card" href="mailto:yukthareddy09@gmail.com">
+        <div class="contact-ico" aria-hidden="true">✉</div>
+        <div class="contact-meta">
           <div class="contact-title">Email</div>
           <div class="contact-sub">yukthareddy09@gmail.com</div>
         </div>
-      </div>
+        <div class="contact-arrow" aria-hidden="true">→</div>
+      </a>
 
-      <!-- LinkedIn -->
-      <a class="contact-card link" href="https://www.linkedin.com/in/yukthareddy29/" target="_blank" rel="noreferrer">
-        <div class="contact-icon" aria-hidden="true">
-          <!-- linkedin icon -->
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="M6.5 9.5V18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            <path d="M6.5 6.5h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-            <path d="M10.5 18v-4.6c0-1.9 1-3.3 3-3.3s3 1.4 3 3.3V18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            <path d="M10.5 10v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div>
+      <a class="contact-card" href="https://www.linkedin.com/in/yukthareddy/" target="_blank" rel="noreferrer">
+        <div class="contact-ico" aria-hidden="true">in</div>
+        <div class="contact-meta">
           <div class="contact-title">LinkedIn</div>
           <div class="contact-sub">linkedin.com/in/yukthareddy</div>
         </div>
+        <div class="contact-arrow" aria-hidden="true">→</div>
       </a>
 
-      <!-- GitHub -->
-      <a class="contact-card link" href="https://github.com/Yuktha29" target="_blank" rel="noreferrer">
-        <div class="contact-icon" aria-hidden="true">
-          <!-- github icon -->
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="M9 19c-4 1.2-4-2-5-2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            <path d="M15 19v-2c0-.6.2-1 .5-1.4 2.5-.3 5-1.3 5-5.7 0-1.2-.4-2.2-1.2-3 .1-.3.5-1.6-.1-3.2 0 0-1-.3-3.2 1.2a10.9 10.9 0 0 0-6 0C7.8 3.4 6.8 3.7 6.8 3.7c-.6 1.6-.2 2.9-.1 3.2C5.9 7.7 5.5 8.7 5.5 9.9c0 4.4 2.5 5.4 5 5.7.3.3.5.8.5 1.4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <div>
+      <a class="contact-card" href="https://github.com/Yuktha29" target="_blank" rel="noreferrer">
+        <div class="contact-ico" aria-hidden="true">⌂</div>
+        <div class="contact-meta">
           <div class="contact-title">GitHub</div>
-          <div class="contact-sub">github.com/yukthareddy</div>
+          <div class="contact-sub">github.com/Yuktha29</div>
         </div>
+        <div class="contact-arrow" aria-hidden="true">→</div>
       </a>
 
-      <!-- Phone -->
-      <div class="contact-card">
-        <div class="contact-icon" aria-hidden="true">
-          <!-- phone icon -->
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="M7 3h3l1.2 5-2 1.4c1 2.1 2.6 3.7 4.7 4.7l1.4-2L21 14v3c0 1-1 2-2 2-8.3 0-15-6.7-15-15 0-1 1-2 2-2Z"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <div>
+      <!-- Optional: keep if you want phone shown; otherwise delete this block -->
+      <a class="contact-card" href="tel:+17169079317">
+        <div class="contact-ico" aria-hidden="true">☎</div>
+        <div class="contact-meta">
           <div class="contact-title">Phone</div>
           <div class="contact-sub">+1 (716) 907-9317</div>
         </div>
-      </div>
+        <div class="contact-arrow" aria-hidden="true">→</div>
+      </a>
     </section>
+
+    <footer class="page-footer">
+      <span>© <span id="year"></span> Yuktha Reddy Vanteru</span>
+    </footer>
   </main>
+
+  <script src="./script.js?v=10" defer></script>
 </body>
 </html>
