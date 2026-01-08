@@ -507,8 +507,10 @@ transition: width 360ms cubic-bezier(.2,.9,.2,1);
   margin-top: 12px;
   display: grid;
   gap: 18px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr; 
+  max-width: 980px;
 }
+
 
 .proj-card{
   border-radius: var(--radius-lg);
@@ -730,7 +732,7 @@ display: none;
   border: 1px solid rgba(74,87,89,0.18);
   background: rgba(222,219,210,0.55);
   box-shadow: 0 10px 26px rgba(0,0,0,0.12);
-  padding: 16px 16px 14px;
+  padding: 16px 16px 14px 36px;
   position: relative;
   transition: transform 180ms ease, box-shadow 180ms ease;
 }
@@ -739,7 +741,7 @@ display: none;
 .story-card::before{
   content: "";
   position: absolute;
-  inset: 10px auto 10px 10px;
+  inset: 10px auto 10px 14px;
   width: 10px;
   border-radius: 999px;
   background: linear-gradient(180deg, rgba(176,196,177,0.85), rgba(74,87,89,0.35));
@@ -748,23 +750,23 @@ display: none;
 
 .story-top h3{
   margin: 0 0 6px;
-  padding-left: 18px; /* make room for accent edge */
+  padding-left: 0; /* make room for accent edge */
   font-size: 20px;
 }
 .story-org{
-  padding-left: 18px;
+  padding-left: 0;
   opacity: 0.85;
   font-weight: 600;
 }
 
 .story-bullets{
   margin: 12px 0 10px;
-  padding-left: 34px;
+  padding-left: 18px;
   line-height: 1.5;
 }
 .story-text{
   margin: 12px 0 10px;
-  padding-left: 18px;
+  padding-left: 0;
   line-height: 1.55;
 }
 
