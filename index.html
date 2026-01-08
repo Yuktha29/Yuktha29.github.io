@@ -22,23 +22,6 @@
 
   <!-- Sidebar -->
   <aside class="sidebar" id="sidebar" aria-label="Sidebar navigation">
-
-    <!-- Snoopy + Close button + Rope MUST live inside sidebar -->
-    <div class="sidebar-top" aria-hidden="false">
-      <img class="mascot" id="mascot" src="./assets/snoopy.gif" alt="Mascot" />
-
-      <!-- Small square close/open button -->
-      <button class="sidebar-toggle" id="sidebarToggle" aria-label="Collapse sidebar" aria-pressed="false" type="button">
-        <span class="toggle-glyph" aria-hidden="true"></span>
-        <span class="toggle-chev" aria-hidden="true">▣</span>
-      </button>
-
-      <!-- Rope SVG overlay (confined to sidebar-top only) -->
-      <svg class="rope-svg" id="ropeSvg" viewBox="0 0 320 140" preserveAspectRatio="none" aria-hidden="true">
-        <path class="rope-path" id="ropePath" d=""></path>
-      </svg>
-    </div>
-
     <div class="sidebar-header">
       <div class="profile">
         <img class="avatar" src="./assets/profile.jpg" alt="Profile photo of Yuktha" />
@@ -59,14 +42,13 @@
       <a class="nav-item" href="./contact.html"><span class="nav-icon">✉</span><span>Contact Me</span></a>
     </nav>
 
-    <!-- keep for mobile drawer behavior if your script uses it -->
+    <!-- keep for mobile drawer behavior -->
     <button class="close-btn" id="closeMenuBtn" aria-label="Close menu" type="button">Close</button>
   </aside>
 
   <!-- Main content -->
   <main class="main" id="home">
-
-    <!-- Quick Actions (MOVE INSIDE main so it doesn't float weirdly) -->
+    <!-- Quick Actions -->
     <section class="quick-actions" aria-label="Quick actions">
       <a class="qa-btn" href="./assets/YukthaReddy_Resume_SWE.pdf" target="_blank" rel="noreferrer">
         <span class="qa-ico" aria-hidden="true">📄</span>
@@ -128,7 +110,7 @@
       </p>
     </section>
 
-    <!-- Placeholder anchors so menu clicks work on Home page -->
+    <!-- Placeholder anchors so menu clicks work on Home page (optional) -->
     <div class="anchors">
       <div id="experiences"></div>
       <div id="projects"></div>
