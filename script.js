@@ -190,12 +190,12 @@ document.addEventListener("DOMContentLoaded", setActiveNavByPage);
   if (!tabs.length || !title || !grid) return;
 
   const data = {
-    frontend: { icon: "<>", label: "Frontend Skills", skills: ["React","TypeScript","Next.js","Tailwind CSS","HTML/CSS","JavaScript","Vue.js","Redux"] },
-    backend:  { icon: "🗄️", label: "Backend Skills",  skills: ["Python","Flask","Node.js","PHP","REST APIs","Auth","Microservices","ML Pipelines"] },
-    database: { icon: "🛢️", label: "Database Skills", skills: ["PostgreSQL","SQL","BCNF","Indexing","EXPLAIN ANALYZE","Query Optimization","Data Modeling","Transactions"] },
+    frontend: { icon: "<>", label: "Frontend Skills", skills: ["React","TypeScript","Next.js","HTML/CSS","JavaScript"] },
+    backend:  { icon: "🗄️", label: "Backend Skills",  skills: ["Python","Java","Flask","Node.js","PHP","REST APIs","Auth","Rust","Django"] },
+    database: { icon: "🛢️", label: "Database Skills", skills: ["PostgreSQL","SQL","No SQL","BCNF","Indexing","Schema design","Data management","Data Modeling","Transactions"] },
     cloud:    { icon: "☁️", label: "Cloud & DevOps",   skills: ["AWS EC2","Docker","GitHub Actions","CI/CD","Linux","Monitoring","Deployments","Networking"] },
     tools:    { icon: "🛠️", label: "Tools",           skills: ["Git","GitHub","Jira","Trello","VS Code","Figma","Postman","Notion"] },
-    mobile:   { icon: "📱", label: "Mobile",          skills: ["React Native","Mobile UI","APIs","State Mgmt"] },
+    aiml:   { icon: "🧠", label: "AI/ML",          skills: ["AI / ML","SFT (Supervised Fine-Tuning)","RLHF (Reinforcement Learning from Human Feedback)"] },
   };
 
   function render(cat){
